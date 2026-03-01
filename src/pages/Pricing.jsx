@@ -1,0 +1,150 @@
+import { useState } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
+import PageHero from '../components/PageHero';
+import SectionWrapper from '../components/SectionWrapper';
+import PricingCard from '../components/PricingCard';
+import CTASection from '../sections/CTASection';
+import { pricingPlans } from '../data/siteData';
+import AnimatedReveal from '../components/AnimatedReveal';
+import { HiChevronDown, HiOutlineQuestionMarkCircle } from 'react-icons/hi2';
+
+export default function Pricing() {
+  const [openFaq, setOpenFaq] = useState(null);
+
+  const faqs = [
+    {
+      q: 'How long does the credentialing process take?',
+      a: 'Credentialing timelines vary by payor, but most applications are completed within 60-90 days. Our streamlined process helps reduce delays significantly.',
+    },
+    {
+      q: 'Do you handle re-credentialing?',
+      a: 'Yes! Our Group and Enterprise plans include re-credentialing management. We track all deadlines and handle the paperwork proactively.',
+    },
+    {
+      q: 'Can I upgrade my plan later?',
+      a: "Absolutely. You can upgrade at any time as your practice grows. We will ensure a seamless transition with no disruption to your current applications.",
+    },
+    {
+      q: 'What payors do you work with?',
+      a: "We work with all major commercial payors, Medicare, Medicaid, and state-specific programs. If there is a specific payor you need, just ask.",
+    },
+  ];
+
+  return (
+    <>
+      <PageHero
+        subtitle="Pricing"
+        title="Transparent, Simple Pricing"
+        description="No hidden fees. No surprises. Choose the plan that fits your practice and get started today."
+      />
+
+      {/* Pricing Cards */}
+      <SectionWrapper bg="bg-gradient-to-br from-blue-50/50 via-indigo-50/30 to-slate-50/30" className="overflow-hidden">
+        {/* Decorative blobs */}
+        <motion.div
+          animate={{ scale: [1, 1.15, 1], opacity: [0.2, 0.4, 0.2] }}
+          transition={{ duration: 10, repeat: Infinity, ease: 'easeInOut' }}
+          className="absolute top-20 -right-20 w-[400px] h-[400px] bg-gradient-to-bl from-primary/5 to-transparent rounded-full blur-3xl"
+        />
+        <motion.div
+          animate={{ scale: [1, 1.2, 1], opacity: [0.15, 0.3, 0.15] }}
+          transition={{ duration: 14, repeat: Infinity, ease: 'easeInOut' }}
+          className="absolute bottom-20 -left-20 w-[350px] h-[350px] bg-gradient-to-tr from-accent/5 to-transparent rounded-full blur-3xl"
+        />
+
+        <div className="grid md:grid-cols-3 gap-6 md:gap-8 max-w-5xl mx-auto items-stretch relative z-10">
+          {pricingPlans.map((plan, i) => (
+            <PricingCard key={plan.name} plan={plan} index={i} />
+          ))}
+        </div>
+      </SectionWrapper>
+
+      {/* FAQ Section */}
+      <SectionWrapper bg="bg-gradient-to-br from-primary-900 via-primary-800 to-primary-900" className="overflow-hidden">
+        <div className="absolute inset-0 bg-dot-pattern bg-dot opacity-10" />
+        <motion.div
+          animate={{ x: [0, 25, 0], y: [0, -15, 0] }}
+          transition={{ duration: 15, repeat: Infinity, ease: 'easeInOut' }}
+          className="absolute bottom-0 right-0 w-[500px] h-[500px] bg-gradient-to-tl from-accent/10 to-transparent rounded-full blur-3xl"
+        />
+
+        <AnimatedReveal animation="fadeUp" className="relative z-10">
+          <div className="max-w-3xl mx-auto">
+            <div className="text-center mb-12">
+              <motion.div
+                initial={{ scale: 0 }}
+                whileInView={{ scale: 1 }}
+                viewport={{ once: true }}
+                transition={{ type: 'spring', stiffness: 400 }}
+                className="w-14 h-14 rounded-2xl bg-gradient-to-br from-accent to-accent-600 flex items-center justify-center mx-auto mb-5 shadow-lg shadow-accent/30"
+              >
+                <HiOutlineQuestionMarkCircle className="w-6 h-6 text-white" />
+              </motion.div>
+              <span className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.2em] text-accent-300 mb-3">
+                <span className="w-6 h-[2px] bg-accent-300 rounded-full" />
+                FAQ
+                <span className="w-6 h-[2px] bg-accent-300 rounded-full" />
+              </span>
+              <h3 className="text-2xl md:text-3xl font-heading font-bold text-white">
+                Frequently Asked Questions
+              </h3>
+            </div>
+            <div className="space-y-4">
+              {faqs.map((faq, i) => {
+                const isOpen = openFaq === i;
+                return (
+                  <motion.div
+                    key={i}
+                    initial={false}
+                    className="group relative"
+                  >
+                    {/* Gradient border on open */}
+                    <motion.div className={`absolute -inset-[1px] rounded-2xl bg-gradient-to-br from-accent to-primary-400 transition-opacity duration-500 ${isOpen ? 'opacity-100' : 'opacity-0 group-hover:opacity-50'}`} />
+
+                    <div className="relative rounded-2xl bg-white/[0.07] backdrop-blur-md border border-white/10 overflow-hidden transition-all duration-500"
+                      style={{ borderColor: isOpen ? 'transparent' : undefined }}
+                    >
+                      <button
+                        onClick={() => setOpenFaq(isOpen ? null : i)}
+                        className="w-full flex items-center justify-between p-6 text-left hover:bg-white/[0.03] transition-colors"
+                      >
+                        <h4 className={`text-base font-heading font-semibold pr-4 transition-colors duration-300 ${isOpen ? 'text-accent-200' : 'text-white/90'}`}>
+                          {faq.q}
+                        </h4>
+                        <motion.div
+                          animate={{ rotate: isOpen ? 180 : 0 }}
+                          transition={{ duration: 0.3, type: 'spring', stiffness: 300 }}
+                          className={`shrink-0 w-9 h-9 rounded-xl flex items-center justify-center transition-all duration-300 ${
+                            isOpen ? 'bg-accent/30' : 'bg-white/10'
+                          }`}
+                        >
+                          <HiChevronDown className={`w-4 h-4 transition-colors duration-300 ${isOpen ? 'text-accent-200' : 'text-white/60'}`} />
+                        </motion.div>
+                      </button>
+                      <AnimatePresence initial={false}>
+                        {isOpen && (
+                          <motion.div
+                            initial={{ height: 0, opacity: 0 }}
+                            animate={{ height: 'auto', opacity: 1 }}
+                            exit={{ height: 0, opacity: 0 }}
+                            transition={{ duration: 0.35, ease: [0.25, 0.1, 0.25, 1] }}
+                          >
+                            <p className="px-6 pb-6 text-sm text-blue-100/60 leading-relaxed">
+                              {faq.a}
+                            </p>
+                          </motion.div>
+                        )}
+                      </AnimatePresence>
+                    </div>
+                  </motion.div>
+                );
+              })}
+            </div>
+          </div>
+        </AnimatedReveal>
+      </SectionWrapper>
+
+      <CTASection />
+    </>
+  );
+}

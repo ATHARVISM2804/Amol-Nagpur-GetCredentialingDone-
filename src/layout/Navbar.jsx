@@ -1,0 +1,205 @@
+import { useState, useEffect } from 'react';
+import { Link, NavLink, useLocation } from 'react-router-dom';
+import { motion, AnimatePresence, useScroll, useSpring } from 'framer-motion';
+import { HiBars3, HiXMark, HiArrowRight } from 'react-icons/hi2';
+import { navLinks } from '../data/siteData';
+
+export default function Navbar() {
+  const [isOpen, setIsOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+  const [hoveredLink, setHoveredLink] = useState(null);
+  const location = useLocation();
+
+  // Scroll progress
+  const { scrollYProgress } = useScroll();
+  const scaleX = useSpring(scrollYProgress, { stiffness: 100, damping: 30, restDelta: 0.001 });
+
+  useEffect(() => {
+    setIsOpen(false);
+  }, [location]);
+
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 20);
+    window.addEventListener('scroll', onScroll);
+    return () => window.removeEventListener('scroll', onScroll);
+  }, []);
+
+  return (
+    <header className="fixed top-0 left-0 right-0 z-50">
+      {/* Top accent bar */}
+      <div className="h-[3px] bg-gradient-to-r from-primary via-accent to-primary" />
+
+      {/* Scroll progress indicator */}
+      <motion.div
+        style={{ scaleX }}
+        className="h-[2px] bg-gradient-to-r from-accent via-primary-400 to-accent origin-left"
+      />
+
+      <div
+        className={`transition-all duration-500 ${
+          scrolled
+            ? 'bg-white/90 backdrop-blur-2xl shadow-[0_4px_30px_rgba(6,69,145,0.08)] border-b border-primary/5'
+            : 'bg-gradient-to-b from-white/70 to-white/30 backdrop-blur-md'
+        }`}
+      >
+        <nav className="container-custom flex items-center justify-between h-[72px]">
+          {/* Logo */}
+          <Link to="/" className="flex items-center gap-3 group">
+            <motion.div
+              whileHover={{ scale: 1.08, rotate: -3 }}
+              whileTap={{ scale: 0.95 }}
+              className="relative w-11 h-11 rounded-2xl overflow-hidden"
+            >
+              <div className="absolute inset-0 bg-gradient-to-br from-primary via-primary-600 to-primary-800" />
+              <div className="absolute inset-0 bg-gradient-to-tr from-accent/20 to-transparent" />
+              <div className="relative w-full h-full flex items-center justify-center">
+                <svg width="22" height="22" viewBox="0 0 20 20" fill="none">
+                  <path d="M4 10l4 4 8-8" stroke="#fff" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" />
+                </svg>
+              </div>
+            </motion.div>
+            <div className="leading-tight">
+              <span className="text-[17px] font-heading font-extrabold tracking-tight">
+                <span className="text-primary">Get</span>
+                <span className="text-gray-800"> Credentialing</span>
+              </span>
+              <span className="block text-[10px] font-black text-accent tracking-[0.35em] uppercase -mt-0.5">DONE</span>
+            </div>
+          </Link>
+
+          {/* Desktop Nav — pill style */}
+          <div className="hidden lg:flex items-center">
+            <div className="flex items-center bg-gray-50/80 rounded-2xl p-1.5 border border-gray-100/60">
+              {navLinks.map((link) => (
+                <NavLink
+                  key={link.path}
+                  to={link.path}
+                  onMouseEnter={() => setHoveredLink(link.path)}
+                  onMouseLeave={() => setHoveredLink(null)}
+                  className={({ isActive }) =>
+                    `relative text-[13px] font-semibold px-5 py-2 rounded-xl transition-all duration-300 ${
+                      isActive
+                        ? 'text-white'
+                        : 'text-gray-600 hover:text-primary'
+                    }`
+                  }
+                >
+                  {({ isActive }) => (
+                    <>
+                      {isActive && (
+                        <motion.div
+                          layoutId="nav-pill"
+                          className="absolute inset-0 bg-gradient-to-r from-primary to-primary-600 rounded-xl shadow-md shadow-primary/25"
+                          transition={{ type: 'spring', stiffness: 380, damping: 30 }}
+                        />
+                      )}
+                      {!isActive && hoveredLink === link.path && (
+                        <motion.div
+                          layoutId="nav-hover"
+                          initial={{ opacity: 0 }}
+                          animate={{ opacity: 1 }}
+                          exit={{ opacity: 0 }}
+                          className="absolute inset-0 bg-primary/5 rounded-xl"
+                          transition={{ duration: 0.2 }}
+                        />
+                      )}
+                      <span className="relative z-10">{link.label}</span>
+                    </>
+                  )}
+                </NavLink>
+              ))}
+            </div>
+
+            <div className="ml-5">
+              <motion.div whileHover={{ scale: 1.04 }} whileTap={{ scale: 0.96 }}>
+                <Link
+                  to="/contact"
+                  className="group relative inline-flex items-center gap-2 overflow-hidden bg-gradient-to-r from-accent to-red-600 text-white text-[13px] font-bold px-6 py-2.5 rounded-2xl shadow-lg shadow-accent/20 hover:shadow-xl hover:shadow-accent/30 transition-all duration-300 btn-shine"
+                >
+                  <span className="relative z-10">Get Started</span>
+                  <HiArrowRight className="w-3.5 h-3.5 relative z-10 group-hover:translate-x-0.5 transition-transform" />
+                  <div className="absolute inset-0 bg-gradient-to-r from-accent-600 to-accent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                </Link>
+              </motion.div>
+            </div>
+          </div>
+
+          {/* Mobile Toggle */}
+          <motion.button
+            whileTap={{ scale: 0.9 }}
+            onClick={() => setIsOpen(!isOpen)}
+            className="lg:hidden w-10 h-10 flex items-center justify-center rounded-xl bg-gray-50 border border-gray-100 text-gray-700"
+            aria-label="Toggle menu"
+          >
+            <AnimatePresence mode="wait">
+              {isOpen ? (
+                <motion.div key="close" initial={{ rotate: -90, opacity: 0 }} animate={{ rotate: 0, opacity: 1 }} exit={{ rotate: 90, opacity: 0 }} transition={{ duration: 0.15 }}>
+                  <HiXMark className="w-5 h-5" />
+                </motion.div>
+              ) : (
+                <motion.div key="open" initial={{ rotate: 90, opacity: 0 }} animate={{ rotate: 0, opacity: 1 }} exit={{ rotate: -90, opacity: 0 }} transition={{ duration: 0.15 }}>
+                  <HiBars3 className="w-5 h-5" />
+                </motion.div>
+              )}
+            </AnimatePresence>
+          </motion.button>
+        </nav>
+      </div>
+
+      {/* Mobile Menu */}
+      <AnimatePresence>
+        {isOpen && (
+          <motion.div
+            initial={{ opacity: 0, y: -10 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -10 }}
+            transition={{ duration: 0.25, ease: [0.25, 0.1, 0.25, 1] }}
+            className="lg:hidden absolute top-full left-0 right-0 bg-white/98 backdrop-blur-2xl border-b border-gray-100 shadow-2xl shadow-primary/5"
+          >
+            <div className="container-custom py-5 space-y-1">
+              {navLinks.map((link, i) => (
+                <motion.div
+                  key={link.path}
+                  initial={{ opacity: 0, x: -20 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ delay: i * 0.06, duration: 0.3 }}
+                >
+                  <NavLink
+                    to={link.path}
+                    className={({ isActive }) =>
+                      `flex items-center justify-between py-3.5 px-5 rounded-2xl text-sm font-semibold transition-all duration-200 ${
+                        isActive
+                          ? 'text-white bg-gradient-to-r from-primary to-primary-600 shadow-md'
+                          : 'text-gray-700 hover:bg-primary-50/60 hover:text-primary'
+                      }`
+                    }
+                  >
+                    {({ isActive }) => (
+                      <>
+                        {link.label}
+                        {isActive && <div className="w-2 h-2 rounded-full bg-accent" />}
+                      </>
+                    )}
+                  </NavLink>
+                </motion.div>
+              ))}
+              <motion.div
+                initial={{ opacity: 0, y: 10 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.3 }}
+                className="pt-3"
+              >
+                <Link
+                  to="/contact"
+                  className="flex items-center justify-center gap-2 w-full bg-gradient-to-r from-accent to-red-600 text-white font-bold py-3.5 rounded-2xl shadow-lg shadow-accent/20"
+                >
+                  Get Started <HiArrowRight className="w-4 h-4" />
+                </Link>
+              </motion.div>
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </header>
+  );
+}
