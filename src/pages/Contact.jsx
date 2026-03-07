@@ -323,7 +323,7 @@ export default function Contact() {
             <span className="w-6 h-[2px] bg-accent rounded-full" />
           </span>
           <h2 className="text-3xl md:text-4xl font-heading font-bold text-gray-900 mb-4 text-balance">
-            Visit Our Office
+           Our Office
           </h2>
           <p className="text-gray-500 leading-relaxed">
             We are located at 8 The Green, Suite# 6882, Dover, DE 19901.
