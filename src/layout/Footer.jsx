@@ -101,25 +101,17 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-12 mb-14">
           {/* Brand — wider column */}
           <div className="lg:col-span-4">
-            <Link to="/" className="inline-flex items-center gap-2.5 mb-5 group">
+            <Link to="/" className="inline-flex items-center mb-5 group">
               <motion.div
-                whileHover={{ rotate: 6, scale: 1.1 }}
+                whileHover={{ scale: 1.05 }}
                 transition={{ type: 'spring', stiffness: 300 }}
-                className="w-10 h-10 bg-gradient-to-br from-primary to-primary-500 rounded-xl flex items-center justify-center shadow-lg shadow-primary/30 ring-1 ring-white/10"
               >
-                <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
-                  <path
-                    d="M4 10l4 4 8-8"
-                    stroke="#E72629"
-                    strokeWidth="2.5"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                  />
-                </svg>
+                <img
+                  src="https://res.cloudinary.com/dmhabztbf/image/upload/v1772874370/logo-transparent_jzzdlr.png"
+                  alt="Get Credentialing Done"
+                  className="h-14 w-auto"
+                />
               </motion.div>
-              <span className="text-white font-heading font-bold text-lg group-hover:text-blue-200 transition-colors duration-300">
-                Get Credentialing Done
-              </span>
             </Link>
             <p className="text-sm leading-relaxed text-gray-400 mb-6 max-w-xs">
               Empowering healthcare providers to focus on patient care while we
@@ -210,8 +202,8 @@ export default function Footer() {
             </h4>
             <ul className="space-y-4">
               {[
+                { icon: HiOutlinePhone, text: 'Toll Free# 866-318-3663', href: 'tel:8663183663' },
                 { icon: HiOutlineEnvelope, text: 'info@getcredentialingdone.com', href: 'mailto:info@getcredentialingdone.com' },
-                { icon: HiOutlinePhone, text: '(555) 123-4567', href: 'tel:5551234567' },
               ].map((item, i) => {
                 const Icon = item.icon;
                 return (
@@ -233,9 +225,9 @@ export default function Footer() {
                   <HiOutlineMapPin className="w-4 h-4 text-accent/80" />
                 </div>
                 <span className="text-sm text-gray-400">
-                  123 Healthcare Blvd, Suite 200
+                  8 The Green Suite 6882
                   <br />
-                  Dallas, TX 75201
+                  Dover, DE 19901
                 </span>
               </li>
             </ul>

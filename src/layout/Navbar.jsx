@@ -44,27 +44,17 @@ export default function Navbar() {
       >
         <nav className="container-custom flex items-center justify-between h-[72px]">
           {/* Logo */}
-          <Link to="/" className="flex items-center gap-3 group">
+          <Link to="/" className="flex items-center group">
             <motion.div
-              whileHover={{ scale: 1.08, rotate: -3 }}
+              whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              className="relative w-11 h-11 rounded-2xl overflow-hidden"
             >
-              <div className="absolute inset-0 bg-gradient-to-br from-primary via-primary-600 to-primary-800" />
-              <div className="absolute inset-0 bg-gradient-to-tr from-accent/20 to-transparent" />
-              <div className="relative w-full h-full flex items-center justify-center">
-                <svg width="22" height="22" viewBox="0 0 20 20" fill="none">
-                  <path d="M4 10l4 4 8-8" stroke="#fff" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" />
-                </svg>
-              </div>
+              <img
+                src="https://res.cloudinary.com/dmhabztbf/image/upload/v1772874370/logo-transparent_jzzdlr.png"
+                alt="Get Credentialing Done"
+                className="h-14 w-auto"
+              />
             </motion.div>
-            <div className="leading-tight">
-              <span className="text-[17px] font-heading font-extrabold tracking-tight">
-                <span className="text-primary">Get</span>
-                <span className="text-gray-800"> Credentialing</span>
-              </span>
-              <span className="block text-[10px] font-black text-accent tracking-[0.35em] uppercase -mt-0.5">DONE</span>
-            </div>
           </Link>
 
           {/* Desktop Nav — pill style */}
