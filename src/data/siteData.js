@@ -49,7 +49,7 @@ export const services = [
     title: 'Payor Enrollment & Network Participation',
     description:
       'Getting enrolled with insurance payors is critical to your revenue. We manage payor enrollment from start to finish including Medicare, Medicaid, and all major commercial insurers — ensuring maximum network participation for your practice.',
-    image: 'https://images.unsplash.com/photo-1551190822-a9ce113ac100?w=800&q=80',
+    image: 'https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=800&q=80',
     bullets: [
       'Medicare & Medicaid enrollment',
       'Commercial payor applications',
