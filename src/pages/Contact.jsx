@@ -240,10 +240,10 @@ export default function Contact() {
                 </h3>
                 <ul className="space-y-4">
                   {[
-                    { icon: HiOutlineEnvelope, label: 'Email', value: 'info@getcredentialingdone.com' },
-                    { icon: HiOutlinePhone, label: 'Phone', value: '(555) 123-4567' },
-                    { icon: HiOutlineMapPin, label: 'Address', value: '123 Healthcare Blvd, Suite 200\nDallas, TX 75201' },
-                    { icon: HiOutlineClock, label: 'Business Hours', value: 'Mon \u2013 Fri: 8:00 AM \u2013 6:00 PM CST\nSat \u2013 Sun: Closed' },
+                    { icon: HiOutlinePhone, label: 'Give us a call', value: 'Toll Free# 866-318-3663' },
+                    { icon: HiOutlineEnvelope, label: 'Email us', value: 'info@getcredentialingdone.com' },
+                    { icon: HiOutlineMapPin, label: 'Address', value: '8 The Green, Suite# 6882\nDover, DE 19901' },
+                    { icon: HiOutlineClock, label: 'Business Hours', value: 'Mon \u2013 Fri: 8:00 AM \u2013 6:00 PM EST\nSat \u2013 Sun: Closed' },
                   ].map((item, i) => {
                     const isHovered = hoveredInfo === i;
                     return (
@@ -298,9 +298,9 @@ export default function Contact() {
                       </motion.div>
                       <h4 className="text-lg font-heading font-bold text-white mb-1.5">Prefer to talk?</h4>
                       <p className="text-sm text-blue-100/60 mb-4">Schedule a free 15-minute consultation with our credentialing experts.</p>
-                      <a href="tel:5551234567" className="inline-flex items-center gap-2 px-5 py-2.5 bg-white/10 hover:bg-white/20 backdrop-blur-sm rounded-xl text-white text-sm font-semibold border border-white/10 hover:border-white/20 transition-all duration-300">
+                      <a href="tel:8663183663" className="inline-flex items-center gap-2 px-5 py-2.5 bg-white/10 hover:bg-white/20 backdrop-blur-sm rounded-xl text-white text-sm font-semibold border border-white/10 hover:border-white/20 transition-all duration-300">
                         <HiOutlinePhone className="w-4 h-4" />
-                        Call (555) 123-4567
+                        Call 866-318-3663
                       </a>
                     </div>
                   </div>
@@ -326,7 +326,7 @@ export default function Contact() {
             Visit Our Office
           </h2>
           <p className="text-gray-500 leading-relaxed">
-            We are conveniently located in the heart of Dallas, Texas.
+            We are located at 8 The Green, Suite# 6882, Dover, DE 19901.
           </p>
         </div>
 
@@ -344,7 +344,7 @@ export default function Contact() {
               <div className="relative h-[380px] md:h-[440px]">
                 <iframe
                   title="Office Location"
-                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d107176.46362990184!2d-96.87187849277082!3d32.82058438498498!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x864e992bab7e4a81%3A0x63d4fbe498e0845d!2sDallas%2C%20TX%2075201!5e0!3m2!1sen!2sus!4v1709136000000!5m2!1sen!2sus"
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3089.123456789!2d-75.5243572!3d39.156028!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c764a6f0e4e1ed%3A0x8c5e6b4e9f1b1234!2s8%20The%20Green%20Ste%206882%2C%20Dover%2C%20DE%2019901!5e0!3m2!1sen!2sus!4v1709136000000!5m2!1sen!2sus"
                   className="w-full h-full border-0 saturate-[0.85] contrast-[1.05] brightness-[1.02]"
                   allowFullScreen
                   loading="lazy"
@@ -376,7 +376,7 @@ export default function Contact() {
                         <div className="min-w-0">
                           <h4 className="text-xs font-heading font-bold text-gray-900 mb-0.5">Get Credentialing Done</h4>
                           <p className="text-[11px] text-gray-500 leading-relaxed">
-                            123 Healthcare Blvd, Suite 200<br />Dallas, TX 75201
+                            8 The Green, Suite# 6882<br />Dover, DE 19901
                           </p>
                         </div>
                       </div>
@@ -400,8 +400,8 @@ export default function Contact() {
                         <HiOutlineMapPin className="w-4 h-4 text-accent-300" />
                       </div>
                       <div>
-                        <p className="text-sm font-semibold text-white">123 Healthcare Blvd, Suite 200</p>
-                        <p className="text-xs text-blue-200/50">Dallas, TX 75201</p>
+                        <p className="text-sm font-semibold text-white">8 The Green, Suite# 6882</p>
+                        <p className="text-xs text-blue-200/50">Dover, DE 19901</p>
                       </div>
                     </div>
                     <span className="hidden md:block w-px h-8 bg-white/10" />
@@ -416,7 +416,7 @@ export default function Contact() {
                     </div>
                   </div>
                   <a
-                    href="https://www.google.com/maps/dir//Dallas+TX+75201"
+                    href="https://www.google.com/maps/dir//8+The+Green+Ste+6882+Dover+DE+19901"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="inline-flex items-center gap-2 px-5 py-2.5 bg-white/10 hover:bg-white/20 backdrop-blur-sm rounded-xl text-white text-sm font-semibold border border-white/10 hover:border-white/25 transition-all duration-300 shrink-0"

@@ -163,9 +163,9 @@ export const blogPosts = [
 ];
 
 export const stats = [
-  { value: 1450, label: 'Providers', suffix: '+' },
-  { value: 77, label: 'Groups', suffix: '+' },
-  { value: 41, label: 'Specialties', suffix: '+' },
+  { value: 2132, label: 'Providers', suffix: '+' },
+  { value: 113, label: 'Groups', suffix: '+' },
+  { value: 60, label: 'Specialties', suffix: '+' },
 ];
 
 export const pricingPlans = [

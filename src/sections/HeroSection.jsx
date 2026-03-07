@@ -204,9 +204,9 @@ export default function HeroSection() {
               className="flex items-center gap-6 sm:gap-10 mt-14 pt-8 border-t border-white/10"
             >
               {[
-                { num: '1,450+', label: 'Providers Credentialed' },
-                { num: '77+', label: 'Groups Served' },
-                { num: '41+', label: 'Specialties' },
+                { num: '2,132+', label: 'Providers Credentialed' },
+                { num: '113+', label: 'Groups Served' },
+                { num: '60+', label: 'Specialties' },
               ].map((stat, i) => (
                 <div key={i} className="flex items-center gap-3">
                   {i > 0 && <div className="w-px h-10 bg-white/15 -ml-3 sm:-ml-5" />}
