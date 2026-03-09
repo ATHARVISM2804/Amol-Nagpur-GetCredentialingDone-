@@ -109,7 +109,7 @@ export default function Footer() {
                 <img
                   src="https://res.cloudinary.com/dmhabztbf/image/upload/v1772874370/logo-transparent_jzzdlr.png"
                   alt="Get Credentialing Done"
-                  className="h-14 w-auto"
+                  className="h-20 w-auto object-contain"
                 />
               </motion.div>
             </Link>

@@ -42,7 +42,7 @@ export default function Navbar() {
             : 'bg-gradient-to-b from-white/70 to-white/30 backdrop-blur-md'
         }`}
       >
-        <nav className="container-custom flex items-center justify-between h-[72px]">
+        <nav className="container-custom flex items-center justify-between h-[88px]">
           {/* Logo */}
           <Link to="/" className="flex items-center group">
             <motion.div
@@ -52,7 +52,7 @@ export default function Navbar() {
               <img
                 src="https://res.cloudinary.com/dmhabztbf/image/upload/v1772874370/logo-transparent_jzzdlr.png"
                 alt="Get Credentialing Done"
-                className="h-14 w-auto"
+                className="h-20 w-auto object-contain"
               />
             </motion.div>
           </Link>
