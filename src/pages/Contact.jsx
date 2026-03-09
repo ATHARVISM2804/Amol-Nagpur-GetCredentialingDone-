@@ -31,7 +31,8 @@ const responseFeatures = [
 
 export default function Contact() {
   const [form, setForm] = useState({
-    name: '',
+    firstName: '',
+    lastName: '',
     email: '',
     phone: '',
     company: '',
@@ -131,8 +132,36 @@ export default function Contact() {
                 <form onSubmit={handleSubmit} className="space-y-6">
                   <div className="grid sm:grid-cols-2 gap-5">
                     {[
-                      { label: 'Full Name *', name: 'name', type: 'text', placeholder: 'Dr. Jane Smith', required: true },
+                      { label: 'First Name *', name: 'firstName', type: 'text', placeholder: 'Jane', required: true },
+                      { label: 'Last Name *', name: 'lastName', type: 'text', placeholder: 'Smith', required: true },
+                    ].map((field) => (
+                      <motion.div
+                        key={field.name}
+                        animate={focusedInput === field.name ? { scale: 1.01 } : { scale: 1 }}
+                        transition={{ type: 'spring', stiffness: 400 }}
+                      >
+                        <label className="block text-sm font-medium text-gray-700 mb-2">
+                          {field.label}
+                        </label>
+                        <input
+                          type={field.type}
+                          name={field.name}
+                          value={form[field.name] || ''}
+                          onChange={handleChange}
+                          required={field.required}
+                          placeholder={field.placeholder}
+                          onFocus={() => setFocusedInput(field.name)}
+                          onBlur={() => setFocusedInput(null)}
+                          className={inputClass}
+                        />
+                      </motion.div>
+                    ))}
+                  </div>
+
+                  <div className="grid sm:grid-cols-2 gap-5">
+                    {[
                       { label: 'Email *', name: 'email', type: 'email', placeholder: 'jane@practice.com', required: true },
+                      { label: 'Phone', name: 'phone', type: 'tel', placeholder: '(555) 123-4567' },
                     ].map((field) => (
                       <motion.div
                         key={field.name}
@@ -157,32 +186,21 @@ export default function Contact() {
                     ))}
                   </div>
 
-                  <div className="grid sm:grid-cols-2 gap-5">
-                    {[
-                      { label: 'Phone', name: 'phone', type: 'tel', placeholder: '(555) 123-4567' },
-                      { label: 'Practice / Company', name: 'company', type: 'text', placeholder: 'ABC Medical Group' },
-                    ].map((field) => (
-                      <motion.div
-                        key={field.name}
-                        animate={focusedInput === field.name ? { scale: 1.01 } : { scale: 1 }}
-                        transition={{ type: 'spring', stiffness: 400 }}
-                      >
-                        <label className="block text-sm font-medium text-gray-700 mb-2">
-                          {field.label}
-                        </label>
-                        <input
-                          type={field.type}
-                          name={field.name}
-                          value={form[field.name]}
-                          onChange={handleChange}
-                          placeholder={field.placeholder}
-                          onFocus={() => setFocusedInput(field.name)}
-                          onBlur={() => setFocusedInput(null)}
-                          className={inputClass}
-                        />
-                      </motion.div>
-                    ))}
-                  </div>
+                  <motion.div animate={focusedInput === 'company' ? { scale: 1.01 } : { scale: 1 }} transition={{ type: 'spring', stiffness: 400 }}>
+                    <label className="block text-sm font-medium text-gray-700 mb-2">
+                      Practice / Company
+                    </label>
+                    <input
+                      type="text"
+                      name="company"
+                      value={form.company}
+                      onChange={handleChange}
+                      placeholder="ABC Medical Group"
+                      onFocus={() => setFocusedInput('company')}
+                      onBlur={() => setFocusedInput(null)}
+                      className={inputClass}
+                    />
+                  </motion.div>
 
                   <motion.div animate={focusedInput === 'service' ? { scale: 1.01 } : { scale: 1 }} transition={{ type: 'spring', stiffness: 400 }}>
                     <label className="block text-sm font-medium text-gray-700 mb-2">
