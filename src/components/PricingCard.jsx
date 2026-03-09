@@ -24,16 +24,16 @@ export default function PricingCard({ plan, index }) {
         />
 
         {/* Animated glow on hover */}
-        <div className={`absolute -inset-3 rounded-3xl blur-xl transition-opacity duration-700 ${
+        <div className={`absolute -inset-3 rounded-[2rem] blur-xl transition-opacity duration-700 ${
           highlighted
-            ? 'bg-accent/20 opacity-100 group-hover:opacity-60'
+            ? 'bg-accent/30 opacity-100 group-hover:opacity-80'
             : 'bg-primary/10 opacity-0 group-hover:opacity-100'
         }`} />
 
-        <div className={`relative rounded-3xl p-8 md:p-10 flex-1 flex flex-col ${
+        <div className={`relative rounded-3xl p-8 md:p-10 flex-1 flex flex-col shadow-2xl ${
           highlighted
-            ? 'bg-gradient-to-br from-primary via-primary-600 to-primary-700 text-white'
-            : 'bg-white text-gray-800'
+            ? 'bg-gradient-to-br from-primary via-primary-600 to-primary-800 text-white border border-primary-500/30'
+            : 'bg-white/95 backdrop-blur-sm text-gray-800 border border-gray-100/50 hover:border-primary/20'
         }`}>
           {highlighted && (
             <motion.span
@@ -76,17 +76,43 @@ export default function PricingCard({ plan, index }) {
           </div>
 
           <div className={`mb-8 pb-8 border-b ${highlighted ? 'border-white/10' : 'border-gray-100'}`}>
-            <motion.span
+            <motion.div
               initial={{ scale: 0.8, opacity: 0 }}
               whileInView={{ scale: 1, opacity: 1 }}
               viewport={{ once: true }}
               transition={{ delay: 0.2 + index * 0.1, type: 'spring' }}
-              className={`text-3xl font-heading font-bold ${
-                highlighted ? 'text-white' : 'text-gray-900'
-              }`}
+              className="flex items-baseline gap-1"
             >
-              {price}
-            </motion.span>
+              {price.includes(' ') ? (
+                <>
+                  <span className={`text-4xl lg:text-5xl font-heading font-extrabold tracking-tight ${highlighted ? 'text-white' : 'text-gray-900'}`}>
+                    {price.split(' ')[0]}
+                  </span>
+                  <span className={`text-sm font-medium ml-1 ${highlighted ? 'text-blue-100/80' : 'text-gray-500'}`}>
+                    {price.substring(price.indexOf(' '))}
+                  </span>
+                </>
+              ) : (
+                <span className={`text-3xl lg:text-4xl font-heading font-bold ${highlighted ? 'text-white' : 'text-gray-900'}`}>
+                  {price}
+                </span>
+              )}
+            </motion.div>
+            {plan.pertext && (
+               <div className={`text-sm mt-2 ${highlighted ? 'text-blue-100/80' : 'text-gray-500'}`}>
+                 {plan.pertext}
+               </div>
+            )}
+            <div className="mt-6">
+              <Button
+                to="/contact"
+                variant={highlighted ? 'white' : 'primary'}
+                size="lg"
+                className="w-full"
+              >
+                Buy Now
+              </Button>
+            </div>
           </div>
 
           <ul className="space-y-4 mb-10 flex-1">
@@ -115,15 +141,6 @@ export default function PricingCard({ plan, index }) {
               </motion.li>
             ))}
           </ul>
-
-          <Button
-            to="/contact"
-            variant={highlighted ? 'white' : 'primary'}
-            size="lg"
-            className="w-full"
-          >
-            Get Started
-          </Button>
         </div>
       </motion.div>
     </AnimatedReveal>

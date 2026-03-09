@@ -4,7 +4,7 @@ import PageHero from '../components/PageHero';
 import SectionWrapper from '../components/SectionWrapper';
 import PricingCard from '../components/PricingCard';
 import CTASection from '../sections/CTASection';
-import { pricingPlans } from '../data/siteData';
+import { pricingPlans, addOnServices } from '../data/siteData';
 import AnimatedReveal from '../components/AnimatedReveal';
 import { HiChevronDown, HiOutlineQuestionMarkCircle } from 'react-icons/hi2';
 
@@ -52,11 +52,61 @@ export default function Pricing() {
           className="absolute bottom-20 -left-20 w-[350px] h-[350px] bg-gradient-to-tr from-accent/5 to-transparent rounded-full blur-3xl"
         />
 
-        <div className="grid md:grid-cols-3 gap-6 md:gap-8 max-w-5xl mx-auto items-stretch relative z-10">
-          {pricingPlans.map((plan, i) => (
+        <div className="grid md:grid-cols-3 gap-6 md:gap-8 max-w-6xl mx-auto items-stretch relative z-10 mb-8 mt-12">
+          {pricingPlans.slice(0, 3).map((plan, i) => (
             <PricingCard key={plan.name} plan={plan} index={i} />
           ))}
         </div>
+        
+        <div className="grid md:grid-cols-2 gap-6 md:gap-8 max-w-4xl mx-auto items-stretch relative z-10 mb-16">
+          {pricingPlans.slice(3, 5).map((plan, i) => (
+            <PricingCard key={plan.name} plan={plan} index={i + 3} />
+          ))}
+        </div>
+
+        {/* Add-on Services Section */}
+        <AnimatedReveal animation="fadeUp" className="max-w-5xl mx-auto relative z-10 mt-24">
+          <div className="relative group rounded-3xl">
+            {/* Animated hover gradient */}
+            <div className="absolute -inset-1 rounded-3xl bg-gradient-to-r from-primary via-accent to-primary opacity-30 group-hover:opacity-60 blur transition-opacity duration-500" />
+            
+            <div className="relative bg-white/90 backdrop-blur-xl rounded-3xl p-8 md:p-12 shadow-2xl border border-white/50">
+              <div className="text-center mb-10">
+                <span className="inline-block py-1.5 px-4 rounded-full bg-primary/10 text-primary font-semibold text-sm mb-4">
+                  Additional Options
+                </span>
+                <h3 className="text-3xl lg:text-4xl font-bold font-heading text-secondary">
+                  Add-On Services
+                </h3>
+                <p className="text-gray-500 mt-3 max-w-2xl mx-auto">
+                  Customize your credentialing package with our flexible add-ons to meet your exact organizational needs.
+                </p>
+              </div>
+
+              <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
+                {addOnServices.map((addon, idx) => (
+                  <motion.div 
+                    key={idx} 
+                    whileHover={{ scale: 1.02 }}
+                    className="flex flex-col justify-center p-6 bg-gradient-to-br from-gray-50 to-gray-100/50 rounded-2xl hover:bg-white hover:shadow-xl hover:shadow-primary/10 transition-all border border-gray-100 relative overflow-hidden group/item"
+                  >
+                    <div className="absolute top-0 right-0 w-24 h-24 bg-gradient-to-br from-primary/5 to-accent/5 rounded-bl-full -z-10 group-hover/item:scale-150 transition-transform duration-500" />
+                    
+                    <span className="font-semibold text-gray-800 mb-2 leading-tight pr-4">{addon.name}</span>
+                    <div className="flex items-end gap-2 mt-auto">
+                      <span className="text-xl font-bold font-heading text-primary">{addon.price.split(' ')[0]}</span>
+                      {addon.price.split(' ').length > 1 && (
+                        <span className="text-sm font-medium text-gray-500 mb-1">
+                          {addon.price.substring(addon.price.indexOf(' '))}
+                        </span>
+                      )}
+                    </div>
+                  </motion.div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </AnimatedReveal>
       </SectionWrapper>
 
       {/* FAQ Section */}
