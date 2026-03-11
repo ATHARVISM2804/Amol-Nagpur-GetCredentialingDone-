@@ -35,8 +35,6 @@ export default function Contact() {
     lastName: '',
     email: '',
     phone: '',
-    company: '',
-    service: '',
     message: '',
   });
   const [hoveredInfo, setHoveredInfo] = useState(null);
@@ -49,7 +47,7 @@ export default function Contact() {
   const handleSubmit = (e) => {
     e.preventDefault();
     alert('Thank you! Your message has been received. We will be in touch shortly.');
-    setForm({ name: '', email: '', phone: '', company: '', service: '', message: '' });
+    setForm({ firstName: '', lastName: '', email: '', phone: '', message: '' });
   };
 
   const inputClass =
@@ -185,42 +183,6 @@ export default function Contact() {
                       </motion.div>
                     ))}
                   </div>
-
-                  <motion.div animate={focusedInput === 'company' ? { scale: 1.01 } : { scale: 1 }} transition={{ type: 'spring', stiffness: 400 }}>
-                    <label className="block text-sm font-medium text-gray-700 mb-2">
-                      Practice / Company
-                    </label>
-                    <input
-                      type="text"
-                      name="company"
-                      value={form.company}
-                      onChange={handleChange}
-                      placeholder="ABC Medical Group"
-                      onFocus={() => setFocusedInput('company')}
-                      onBlur={() => setFocusedInput(null)}
-                      className={inputClass}
-                    />
-                  </motion.div>
-
-                  <motion.div animate={focusedInput === 'service' ? { scale: 1.01 } : { scale: 1 }} transition={{ type: 'spring', stiffness: 400 }}>
-                    <label className="block text-sm font-medium text-gray-700 mb-2">
-                      Service Interested In
-                    </label>
-                    <select
-                      name="service"
-                      value={form.service}
-                      onChange={handleChange}
-                      onFocus={() => setFocusedInput('service')}
-                      onBlur={() => setFocusedInput(null)}
-                      className={inputClass}
-                    >
-                      <option value="">Select a service</option>
-                      <option value="individual">Individual Provider Credentialing</option>
-                      <option value="group">Group Credentialing</option>
-                      <option value="payor">Payor Enrollment</option>
-                      <option value="other">Other</option>
-                    </select>
-                  </motion.div>
 
                   <motion.div animate={focusedInput === 'message' ? { scale: 1.01 } : { scale: 1 }} transition={{ type: 'spring', stiffness: 400 }}>
                     <label className="block text-sm font-medium text-gray-700 mb-2">
