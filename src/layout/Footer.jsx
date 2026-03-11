@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import { navLinks } from '../data/siteData';
+import { navLinks, serviceDropdownLinks } from '../data/siteData';
 import {
   HiOutlineEnvelope,
   HiOutlinePhone,
@@ -179,14 +179,14 @@ export default function Footer() {
               Services
             </h4>
             <ul className="space-y-3.5">
-              {['Individual Credentialing', 'Group Credentialing', 'Payor Enrollment', 'Medicare & Medicaid', 'CAQH Management', 'Re-Credentialing'].map((service) => (
-                <li key={service}>
+              {serviceDropdownLinks.map((service) => (
+                <li key={service.path}>
                   <Link
-                    to="/services"
+                    to={service.path}
                     className="group/link text-sm text-gray-400 hover:text-white inline-flex items-center gap-2 transition-all duration-300"
                   >
                     <span className="w-0 group-hover/link:w-2 h-[2px] bg-accent rounded-full transition-all duration-300" />
-                    {service}
+                    {service.label}
                     <HiArrowUpRight className="w-3 h-3 opacity-0 group-hover/link:opacity-100 transition-opacity duration-300" />
                   </Link>
                 </li>
@@ -253,18 +253,15 @@ export default function Footer() {
           </p>
           <div className="flex items-center gap-6">
             <div className="flex gap-6 text-xs text-gray-500">
-              <a href="#" className="hover:text-white transition-colors duration-300 relative group/legal">
+              <Link to="/privacy-policy" className="hover:text-white transition-colors duration-300 relative group/legal">
                 Privacy Policy
                 <span className="absolute -bottom-0.5 left-0 w-0 group-hover/legal:w-full h-[1px] bg-accent/50 transition-all duration-300 rounded-full" />
-              </a>
+              </Link>
               <a href="#" className="hover:text-white transition-colors duration-300 relative group/legal">
                 Terms of Service
                 <span className="absolute -bottom-0.5 left-0 w-0 group-hover/legal:w-full h-[1px] bg-accent/50 transition-all duration-300 rounded-full" />
               </a>
-              <a href="#" className="hover:text-white transition-colors duration-300 relative group/legal">
-                HIPAA Compliance
-                <span className="absolute -bottom-0.5 left-0 w-0 group-hover/legal:w-full h-[1px] bg-accent/50 transition-all duration-300 rounded-full" />
-              </a>
+             
             </div>
             {/* Back to top */}
             <motion.button
