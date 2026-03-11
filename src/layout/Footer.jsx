@@ -263,10 +263,10 @@ export default function Footer() {
                 Privacy Policy
                 <span className="absolute -bottom-0.5 left-0 w-0 group-hover/legal:w-full h-[1px] bg-accent/50 transition-all duration-300 rounded-full" />
               </Link>
-              <a href="#" className="hover:text-white transition-colors duration-300 relative group/legal">
+              <Link to="/termsofservice" className="hover:text-white transition-colors duration-300 relative group/legal">
                 Terms of Service
                 <span className="absolute -bottom-0.5 left-0 w-0 group-hover/legal:w-full h-[1px] bg-accent/50 transition-all duration-300 rounded-full" />
-              </a>
+              </Link>
 
             </div>
             {/* Back to top */}

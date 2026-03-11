@@ -6,6 +6,8 @@ import Services from './pages/Services';
 import ServiceDetail from './pages/ServiceDetail';
 import Pricing from './pages/Pricing';
 import Contact from './pages/Contact';
+import PrivacyPolicy from './pages/PrivacyPolicy';
+import TermsOfService from './pages/TermsOfService';
 
 export default function App() {
   return (
@@ -17,6 +19,8 @@ export default function App() {
         <Route path="/services/:slug" element={<ServiceDetail />} />
         <Route path="/pricing" element={<Pricing />} />
         <Route path="/contact" element={<Contact />} />
+        <Route path="/privacypolicy" element={<PrivacyPolicy />} />
+        <Route path="/termsofservice" element={<TermsOfService />} />
       </Route>
     </Routes>
   );
