@@ -1,69 +1,324 @@
 import PageHero from '../components/PageHero';
 import AnimatedReveal from '../components/AnimatedReveal';
 
+const tocItems = [
+    { id: 'online-store-terms', label: 'Online Store Terms' },
+    { id: 'general-conditions', label: 'General Conditions' },
+    { id: 'accuracy-info', label: 'Accuracy, Completeness and Timeliness of Information' },
+    { id: 'modifications', label: 'Modifications to the Service and Prices' },
+    { id: 'products-services', label: 'Products or Services' },
+    { id: 'billing-info', label: 'Accuracy of Billing and Account Information' },
+    { id: 'optional-tools', label: 'Optional Tools' },
+    { id: 'third-party-links', label: 'Third-Party Links' },
+    { id: 'user-comments', label: 'User Comments, Feedback and Other Submissions' },
+    { id: 'personal-info', label: 'Personal Information' },
+    { id: 'errors-omissions', label: 'Errors, Inaccuracies and Omissions' },
+    { id: 'prohibited-uses', label: 'Prohibited Uses' },
+    { id: 'disclaimer', label: 'Disclaimer of Warranties; Limitation of Liability' },
+    { id: 'indemnification', label: 'Indemnification' },
+    { id: 'severability', label: 'Severability' },
+    { id: 'termination', label: 'Termination' },
+    { id: 'entire-agreement', label: 'Entire Agreement' },
+    { id: 'governing-law', label: 'Governing Law' },
+    { id: 'changes', label: 'Changes to Terms of Service' },
+    { id: 'contact', label: 'Contact Information' },
+];
+
+function SectionCard({ id, number, title, children }) {
+    return (
+        <div id={id} className="bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden">
+            <div className="flex items-center gap-4 px-7 py-4 bg-gray-50/80 border-b border-gray-100">
+                <span className="shrink-0 w-8 h-8 rounded-full bg-primary text-white flex items-center justify-center text-xs font-bold shadow-sm">
+                    {number}
+                </span>
+                <h2 className="text-base md:text-lg font-bold font-heading text-gray-900 uppercase tracking-wide">
+                    {title}
+                </h2>
+            </div>
+            <div className="px-7 py-6 text-gray-600 leading-relaxed space-y-4">
+                {children}
+            </div>
+        </div>
+    );
+}
+
+function Bullet({ children, color = 'bg-primary' }) {
+    return (
+        <li className="flex items-start gap-2.5 text-sm text-gray-600">
+            <span className={`mt-1.5 shrink-0 w-1.5 h-1.5 rounded-full ${color}`}></span>
+            <span>{children}</span>
+        </li>
+    );
+}
+
 export default function TermsOfService() {
     return (
         <div className="bg-gray-50 min-h-screen">
             <PageHero
-                title="Terms of Service"
+                title="Terms and Conditions"
                 subtitle="Legal"
-                description="Last updated: October 2023"
+                description="Last updated: March 2026"
             />
 
             <section className="py-20">
-                <div className="container-custom max-w-4xl">
+                <div className="container-custom max-w-5xl">
+
+                    {/* Overview Card */}
                     <AnimatedReveal>
-                        <div className="bg-white p-8 md:p-12 rounded-2xl shadow-sm border border-gray-100 prose prose-primary max-w-none">
-
-                            <h2 className="text-2xl font-bold font-heading text-gray-900 mb-4">1. Acceptance of Terms</h2>
-                            <p className="text-gray-600 mb-6 leading-relaxed">
-                                By accessing or using the services provided by Get Credentialing Done ("we", "our", or "us"), you agree to be bound by these Terms of Service. If you do not agree to these terms, please do not use our services.
-                            </p>
-
-                            <h2 className="text-2xl font-bold font-heading text-gray-900 mb-4">2. Description of Services</h2>
-                            <p className="text-gray-600 mb-6 leading-relaxed">
-                                Get Credentialing Done provides healthcare credentialing services, including but not limited to provider enrollment, insurance panel credentialing, re-credentialing, and CAQH profile management. We act as your authorized representative to facilitate the credentialing process with insurance companies and other entities.
-                            </p>
-
-                            <h2 className="text-2xl font-bold font-heading text-gray-900 mb-4">3. User Responsibilities</h2>
-                            <p className="text-gray-600 mb-2 leading-relaxed">
-                                As a user of our services, you agree to:
-                            </p>
-                            <ul className="list-disc pl-6 text-gray-600 mb-6 space-y-2">
-                                <li>Provide accurate, current, and complete information as required for credentialing applications.</li>
-                                <li>Promptly update any information that changes during the credentialing process.</li>
-                                <li>Respond to requests for additional documentation or information in a timely manner.</li>
-                                <li>Not use our services for any unlawful purpose or in violation of any applicable regulations.</li>
-                            </ul>
-
-                            <h2 className="text-2xl font-bold font-heading text-gray-900 mb-4">4. Fees and Payment</h2>
-                            <p className="text-gray-600 mb-6 leading-relaxed">
-                                Our fees are as outlined on our pricing page or as agreed upon in a separate written agreement. Payment is due as specified in your service agreement. We reserve the right to modify our fees with prior notice.
-                            </p>
-
-                            <h2 className="text-2xl font-bold font-heading text-gray-900 mb-4">5. Limitation of Liability</h2>
-                            <p className="text-gray-600 mb-6 leading-relaxed">
-                                Get Credentialing Done shall not be held liable for any delays in credentialing caused by third-party organizations, including insurance companies, hospitals, or government agencies. While we strive for accuracy and efficiency, we cannot guarantee specific outcomes or timelines for credentialing approvals.
-                            </p>
-
-                            <h2 className="text-2xl font-bold font-heading text-gray-900 mb-4">6. Confidentiality</h2>
-                            <p className="text-gray-600 mb-6 leading-relaxed">
-                                We are committed to maintaining the confidentiality of all information you provide to us. We will handle your data in accordance with our Privacy Policy and applicable laws, including HIPAA regulations where applicable.
-                            </p>
-
-                            <h2 className="text-2xl font-bold font-heading text-gray-900 mb-4">7. Termination</h2>
-                            <p className="text-gray-600 mb-6 leading-relaxed">
-                                Either party may terminate this agreement with written notice. Upon termination, any outstanding fees remain payable. We will provide you with copies of all documentation related to your credentialing applications upon request.
-                            </p>
-
-                            <h2 className="text-2xl font-bold font-heading text-gray-900 mb-4">8. Contact Us</h2>
-                            <p className="text-gray-600 leading-relaxed">
-                                If you have any questions about these Terms of Service, please contact us at:<br />
-                                <a href="mailto:info@getcredentialingdone.com" className="text-primary hover:text-primary-700 underline transition-colors">info@getcredentialingdone.com</a>
-                            </p>
-
+                        <div className="bg-white rounded-2xl shadow-sm border border-gray-100 px-7 py-6 mb-6">
+                            <p className="text-xs font-bold uppercase tracking-widest text-primary mb-3">Overview</p>
+                            <p className="text-gray-700 font-semibold mb-1">Get Credentialing Done LLC — Terms and Conditions</p>
+                            <div className="space-y-3 text-gray-600 text-sm leading-relaxed mt-3">
+                                <p>
+                                    This website is operated by <span className="font-semibold text-gray-800">Medicus Healthcare Solutions LLC</span>. Throughout the site, the terms "we", "us" and "our" refer to Medicus Healthcare Solutions LLC. Medicus Healthcare Solutions LLC offers this website, including all information, tools and services available from this site to you, the user, conditioned upon your acceptance of all terms, conditions, policies and notices stated here.
+                                </p>
+                                <p>
+                                    By visiting our site and/or purchasing something from us, you engage in our "Service" and agree to be bound by the following terms and conditions ("Terms of Service", "Terms"), including those additional terms and conditions and policies referenced herein and/or available by hyperlink. These Terms of Service apply to all users of the site, including without limitation users who are browsers, vendors, customers, merchants, and/or contributors of content.
+                                </p>
+                                <p>
+                                    Please read these Terms of Service carefully before accessing or using our website. By accessing or using any part of the site, you agree to be bound by these Terms of Service. If you do not agree to all the terms and conditions of this agreement, then you may not access the website or use any services. If these Terms of Service are considered an offer, acceptance is expressly limited to these Terms of Service.
+                                </p>
+                                <p>
+                                    Any new features or tools which are added to the current store shall also be subject to the Terms of Service. You can review the most current version of the Terms of Service at any time on this page. We reserve the right to update, change, or replace any part of these Terms of Service by posting updates and/or changes to our website. It is your responsibility to check this page periodically for changes. Your continued use of or access to the website following the posting of any changes constitutes acceptance of those changes.
+                                </p>
+                                <p>
+                                    Our store is hosted on Shopify Inc. They provide us with an online e-commerce platform that allows us to sell our products and services to you.
+                                </p>
+                            </div>
                         </div>
                     </AnimatedReveal>
+
+                    {/* Table of Contents */}
+                    <AnimatedReveal delay={0.05}>
+                        <div className="bg-primary-900 rounded-2xl px-7 py-6 mb-8">
+                            <p className="text-xs font-bold uppercase tracking-widest text-white/50 mb-4">Table of Contents</p>
+                            <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-2">
+                                {tocItems.map((item, i) => (
+                                    <a
+                                        key={item.id}
+                                        href={`#${item.id}`}
+                                        className="flex items-center gap-3 text-sm text-white/65 hover:text-white transition-colors group py-0.5"
+                                    >
+                                        <span className="shrink-0 w-5 h-5 rounded-full bg-white/10 group-hover:bg-primary flex items-center justify-center text-[10px] font-bold text-white transition-colors">
+                                            {i + 1}
+                                        </span>
+                                        {item.label}
+                                    </a>
+                                ))}
+                            </div>
+                        </div>
+                    </AnimatedReveal>
+
+                    {/* Sections */}
+                    <div className="space-y-5">
+
+                        <AnimatedReveal delay={0.07}>
+                            <SectionCard id="online-store-terms" number={1} title="Online Store Terms">
+                                <p>By agreeing to these Terms of Service, you represent that you are at least the age of majority in your state or province of residence, or that you are the age of majority in your state or province of residence and you have given us your consent to allow any of your minor dependents to use this site.</p>
+                                <p>You may not use our products for any illegal or unauthorized purpose nor may you, in the use of the Service, violate any laws in your jurisdiction (including but not limited to copyright laws).</p>
+                                <p>You must not transmit any worms or viruses or any code of a destructive nature.</p>
+                                <div className="bg-red-50 border-l-4 border-red-400 rounded-r-xl px-5 py-3 text-sm text-red-700">
+                                    A breach or violation of any of the Terms will result in an immediate termination of your Services.
+                                </div>
+                            </SectionCard>
+                        </AnimatedReveal>
+
+                        <AnimatedReveal delay={0.09}>
+                            <SectionCard id="general-conditions" number={2} title="General Conditions">
+                                <p>We reserve the right to refuse service to anyone for any reason at any time.</p>
+                                <p>You understand that your content (not including credit card information), may be transferred unencrypted and involve (a) transmissions over various networks; and (b) changes to conform and adapt to technical requirements of connecting networks or devices. Credit card information is always encrypted during transfer over networks.</p>
+                                <p>You agree not to reproduce, duplicate, copy, sell, resell, or exploit any portion of the Service, use of the Service, or access to the Service or any contact on the website through which the service is provided, without express written permission by us.</p>
+                                <p>The headings used in this agreement are included for convenience only and will not limit or otherwise affect these Terms.</p>
+                            </SectionCard>
+                        </AnimatedReveal>
+
+                        <AnimatedReveal delay={0.11}>
+                            <SectionCard id="accuracy-info" number={3} title="Accuracy, Completeness and Timeliness of Information">
+                                <p>We are not responsible if the information made available on this site is not accurate, complete, or current. The material on this site is provided for general information only and should not be relied upon or used as the sole basis for making decisions without consulting primary, more accurate, more complete, or more timely sources of information. Any reliance on the material on this site is at your own risk.</p>
+                                <p>This site may contain certain historical information. Historical information, necessarily, is not current and is provided for your reference only. We reserve the right to modify the contents of this site at any time, but we have no obligation to update any information on our site. You agree that it is your responsibility to monitor changes to our site.</p>
+                            </SectionCard>
+                        </AnimatedReveal>
+
+                        <AnimatedReveal delay={0.12}>
+                            <SectionCard id="modifications" number={4} title="Modifications to the Service and Prices">
+                                <p>Prices for our products are subject to change without notice.</p>
+                                <p>We reserve the right at any time to modify or discontinue the Service (or any part or content thereof) without notice at any time.</p>
+                                <p>We shall not be liable to you or any third party for any modification, price change, suspension, or discontinuance of the Service.</p>
+                            </SectionCard>
+                        </AnimatedReveal>
+
+                        <AnimatedReveal delay={0.13}>
+                            <SectionCard id="products-services" number={5} title="Products or Services (if applicable)">
+                                <p>Certain products or services may be available exclusively online through the website. These products or services may have limited quantities and are subject to return or exchange only according to our Return Policy.</p>
+                                <p>We have made every effort to display as accurately as possible the colors and images of our products that appear at the store. We cannot guarantee that your computer monitor's display of any color will be accurate.</p>
+                                <p>We reserve the right but are not obligated, to limit the sales of our products or Services to any person, geographic region, or jurisdiction. We may exercise this right on a case-by-case basis. We reserve the right to limit the quantities of any products or services that we offer. All descriptions of products or service pricing are subject to change at any time without notice, at our sole discretion. We reserve the right to discontinue any product at any time. Any offer for any service made on this site is void where prohibited by law.</p>
+                                <p>We do not warrant that the quality of any products, services, information, or other material purchased or obtained by you will meet your expectations, or that any errors in the Service will be corrected.</p>
+                            </SectionCard>
+                        </AnimatedReveal>
+
+                        <AnimatedReveal delay={0.14}>
+                            <SectionCard id="billing-info" number={6} title="Accuracy of Billing and Account Information">
+                                <p>We reserve the right to refuse any order you place with us. We may, in our sole discretion, limit or cancel quantities purchased per person, per household, or per order. These restrictions may include orders placed under the same customer account, the same credit card, and/or orders that use the same billing and/or shipping address. In the event that we make a change to or cancel an order, we will attempt to notify you by contacting the e-mail and/or billing address/phone number provided at the time the order was made. We reserve the right to limit or prohibit orders that, in our sole judgment, appear to be placed by dealers, resellers, or distributors.</p>
+                                <p>You agree to provide current, complete, and accurate purchase and account information for all purchases made at our store. You agree to promptly update your account and other information, including your email address and credit numbers, and expiration dates, so that we can complete your transactions and contact you as needed.</p>
+                                <p>For more details, please review our Returns Policy.</p>
+                            </SectionCard>
+                        </AnimatedReveal>
+
+                        <AnimatedReveal delay={0.15}>
+                            <SectionCard id="optional-tools" number={7} title="Optional Tools">
+                                <p>We may provide you with access to third-party tools over which we neither monitor nor have any control or input.</p>
+                                <p>You acknowledge and agree that we provide access to such tools "as is" and "as available" without any warranties, representations, or conditions of any kind and any endorsement. We shall have no liability whatsoever arising from or relating to your use of optional third-party tools.</p>
+                                <p>Any use by you of optional tools offered through the site is entirely at your own risk and discretion and you should ensure that you are familiar with and approve of the terms on which tools are provided by the relevant third-party provider(s).</p>
+                                <p>We may also, in the future, offer new services and/or features through the website (including, the release of new tools and resources). Such new features and/or services shall also be subject to these Terms of Service.</p>
+                            </SectionCard>
+                        </AnimatedReveal>
+
+                        <AnimatedReveal delay={0.16}>
+                            <SectionCard id="third-party-links" number={8} title="Third-Party Links">
+                                <p>Certain content, products and services available via our Service may include materials from third-parties.</p>
+                                <p>Third-party links on this site may direct you to third-party websites that are not affiliated with us. We are not responsible for examining or evaluating the content or accuracy and we do not warrant and will not have any liability or responsibility for any third-party materials or websites, or for any other materials, products, or services of third-parties.</p>
+                                <p>We are not liable for any harm or damages related to the purchase or use of goods, services, resources, content, or any other transactions made in connection with any third-party websites. Please review carefully the third-party's policies and practices and make sure you understand them before you engage in any transaction. Complaints, claims, concerns, or questions regarding third-party products should be directed to the third-party.</p>
+                            </SectionCard>
+                        </AnimatedReveal>
+
+                        <AnimatedReveal delay={0.17}>
+                            <SectionCard id="user-comments" number={9} title="User Comments, Feedback and Other Submissions">
+                                <p>If, at our request, you send certain specific submissions (for example contest entries) or without a request from us you send creative ideas, suggestions, proposals, plans, or other materials, whether online, by email, by postal mail, or otherwise (collectively, 'comments'), you agree that we may, at any time, without restriction, (a) edit, copy, publish, distribute, translate and otherwise use in any medium any comments that you forward to us; you further agree that we have no obligation (1) to maintain any comments in confidence; (2) to pay compensation for any comments; or (3) to respond to any comments.</p>
+                                <p>We may, but have no obligation to, monitor, edit or remove content that we determine in our sole discretion are unlawful, offensive, threatening, libelous, defamatory, pornographic, obscene, or otherwise objectionable or violates any party's intellectual property or these Terms of Service.</p>
+                                <p>You agree that your comments will not violate any right of any third-party, including copyright, trademark, privacy, personality or other personal or proprietary right. You further agree that your comments will not contain libelous or otherwise unlawful, abusive, or obscene material, or contain any computer virus or other malware that could in any way affect the operation of the Service or any related website. You may not use a false e-mail address, pretend to be someone other than yourself, or otherwise mislead us or third parties as to the origin of any comments. You are solely responsible for any comments you make and their accuracy. We take no responsibility and assume no liability for any comments posted by you or any third-party.</p>
+                            </SectionCard>
+                        </AnimatedReveal>
+
+                        <AnimatedReveal delay={0.18}>
+                            <SectionCard id="personal-info" number={10} title="Personal Information">
+                                <p>
+                                    Your submission of personal information through the store is governed by our Privacy Policy. To view our Privacy Policy, please visit our{' '}
+                                    <a href="/privacy-policy" className="text-primary underline hover:text-primary-700 transition-colors font-medium">Privacy Policy page</a>.
+                                </p>
+                            </SectionCard>
+                        </AnimatedReveal>
+
+                        <AnimatedReveal delay={0.19}>
+                            <SectionCard id="errors-omissions" number={11} title="Errors, Inaccuracies and Omissions">
+                                <p>Occasionally there may be information on our site or in the Service that contains typographical errors, inaccuracies, or omissions that may relate to product descriptions, pricing, promotions, offers, product shipping charges, transit times and availability. We reserve the right to correct any errors, inaccuracies or omissions, and to change or update information or correct orders if any information in the Service or on any related website is inaccurate at any time without prior notice (including after you have submitted your order).</p>
+                                <p>We undertake no obligation to update, amend, or clarify information in the Service or on any related website, including without limitation, pricing information, except as required by law. No specified update or refresh date applied in the Service or on any related website should be taken to indicate that all information in the Service or on any related website has been modified or updated.</p>
+                            </SectionCard>
+                        </AnimatedReveal>
+
+                        <AnimatedReveal delay={0.20}>
+                            <SectionCard id="prohibited-uses" number={12} title="Prohibited Uses">
+                                <p>In addition to other prohibitions as set forth in the Terms of Service, you are prohibited from using the site or its content:</p>
+                                <ul className="space-y-2.5 mt-1">
+                                    {[
+                                        'For any unlawful purpose;',
+                                        'To solicit others to perform or participate in any unlawful acts;',
+                                        'To violate any international, federal, provincial or state regulations, rules, laws, or local ordinances;',
+                                        'To infringe upon or violate our intellectual property rights or the intellectual property rights of others;',
+                                        'To harass, abuse, insult, harm, defame, slander, disparage, intimidate, or discriminate based on gender, sexual orientation, religion, ethnicity, race, age, national origin, or disability;',
+                                        'To submit false or misleading information;',
+                                        'To upload or transmit viruses or any other type of malicious code that will or may be used in any way that will affect the functionality or operation of the Service or of any related website, other websites, or the Internet;',
+                                        'To collect or track the personal information of others;',
+                                        'To spam, phish, pharm, pretext, spider, crawl, or scrape;',
+                                        'For any obscene or immoral purpose; or',
+                                        'To interfere with or circumvent the security features of the Service or any related website, other websites, or the Internet.',
+                                    ].map((item, i) => (
+                                        <Bullet key={i} color="bg-red-400">{item}</Bullet>
+                                    ))}
+                                </ul>
+                                <p className="text-sm">We reserve the right to terminate your use of the Service or any related website for violating any of the prohibited uses.</p>
+                            </SectionCard>
+                        </AnimatedReveal>
+
+                        <AnimatedReveal delay={0.21}>
+                            <SectionCard id="disclaimer" number={13} title="Disclaimer of Warranties; Limitation of Liability">
+                                <div className="bg-amber-50 border-l-4 border-amber-400 rounded-r-xl px-5 py-4 space-y-2 text-sm text-amber-800">
+                                    <p>We do not guarantee, represent, or warrant that your use of our service will be uninterrupted, timely, secure, or error-free.</p>
+                                    <p>We do not warrant that the results that may be obtained from the use of the service will be accurate or reliable.</p>
+                                    <p>You agree that from time to time we may remove the service for indefinite periods of time or cancel the service, without notice to you.</p>
+                                </div>
+                                <p>You expressly agree that your use of, or inability to use, the service is at your sole risk. The service and all products and services delivered to you through the service are (except as expressly stated by us) provided 'as is' and 'as available' for your use, without any representation, warranties, or conditions of any kind, either express or implied, including all implied warranties or conditions of merchantability, merchantable quality, fitness for a particular purpose, durability, title, and non-infringement.</p>
+                                <p>In no case shall Medicus Healthcare Solutions LLC, our directors, officers, employees, affiliates, agents, contractors, interns, suppliers, service providers or licensors be liable for any injury, loss, claim, or any direct, indirect, incidental, punitive, special, or consequential damages of any kind, including, without limitation lost profits, lost revenue, lost savings, loss of data, replacement costs, or any similar damages, whether based in contract, tort (including negligence), strict liability or otherwise, arising from your use of any of the service or any products procured using the service, or for any other claim related in any way to your use of the service or any product, including, but not limited to, any errors or omissions in any content, or any loss or damage of any kind incurred as a result of the use of the service or any content (or product) posted, transmitted, or otherwise made available via the service, even if advised of their possibility. Because some states or jurisdictions do not allow the exclusion or the limitation of liability for consequential or incidental damages, in such states or jurisdictions, our liability shall be limited to the maximum extent permitted by law.</p>
+                            </SectionCard>
+                        </AnimatedReveal>
+
+                        <AnimatedReveal delay={0.22}>
+                            <SectionCard id="indemnification" number={14} title="Indemnification">
+                                <p>You agree to indemnify, defend and hold harmless Medicus Healthcare Solutions LLC and our parent, subsidiaries, affiliates, partners, officers, directors, agents, contractors, licensors, service providers, subcontractors, suppliers, interns and employees, harmless from any claim or demand, including reasonable attorneys' fees, made by any third-party due to or arising out of your breach of these Terms of Service or the documents they incorporate by reference, or your violation of any law or the rights of a third-party.</p>
+                            </SectionCard>
+                        </AnimatedReveal>
+
+                        <AnimatedReveal delay={0.23}>
+                            <SectionCard id="severability" number={15} title="Severability">
+                                <p>If any provision of these Terms of Service is determined to be unlawful, void, or unenforceable, such provision shall nonetheless be enforceable to the fullest extent permitted by applicable law, and the unenforceable portion shall be deemed to be severed from these Terms of Service, such determination shall not affect the validity and enforceability of any other remaining provisions.</p>
+                            </SectionCard>
+                        </AnimatedReveal>
+
+                        <AnimatedReveal delay={0.24}>
+                            <SectionCard id="termination" number={16} title="Termination">
+                                <p>The obligations and liabilities of the parties incurred prior to the termination date shall survive the termination of this agreement for all purposes.</p>
+                                <p>These Terms of Service are effective unless and until terminated by either you or us. You may terminate these Terms of Service at any time by notifying us that you no longer wish to use our Services, or when you cease using our site.</p>
+                                <p>If in our sole judgment, you fail or we suspect that you have failed, to comply with any term or provision of these Terms of Service, we also may terminate this agreement at any time without notice and you will remain liable for all amounts due up to and including the date of termination; and accordingly may deny you access to our Services (or any part thereof).</p>
+                            </SectionCard>
+                        </AnimatedReveal>
+
+                        <AnimatedReveal delay={0.25}>
+                            <SectionCard id="entire-agreement" number={17} title="Entire Agreement">
+                                <p>The failure of us to exercise or enforce any right or provision of these Terms of Service shall not constitute a waiver of such right or provision.</p>
+                                <p>These Terms of Service and any policies or operating rules posted by us on this site or in respect to the Service constitutes the entire agreement and understanding between you and us and govern your use of the Service, superseding any prior or contemporaneous agreements, communications, and proposals, whether oral or written, between you and us (including, but not limited to, any prior versions of the Terms of Service).</p>
+                                <p>Any ambiguities in the interpretation of these Terms of Service shall not be construed against the drafting party.</p>
+                            </SectionCard>
+                        </AnimatedReveal>
+
+                        <AnimatedReveal delay={0.26}>
+                            <SectionCard id="governing-law" number={18} title="Governing Law">
+                                <p>These terms of service and any separate agreements whereby we provide you Services shall be governed by and construed by the laws of 8 The Green, Suite A, Dover, DE 19901, United States.</p>
+                            </SectionCard>
+                        </AnimatedReveal>
+
+                        <AnimatedReveal delay={0.27}>
+                            <SectionCard id="changes" number={19} title="Changes to Terms of Service">
+                                <p>You can review the most current version of the Terms of Service at any time on this page.</p>
+                                <p>We reserve the right, at our sole discretion, to update, change, or replace any part of these Terms of Service by posting updates and changes to our website. It is your responsibility to check our website periodically for changes. Your continued use of or access to our website or the Service following the posting of any changes to these Terms of Service constitutes acceptance of those changes.</p>
+                            </SectionCard>
+                        </AnimatedReveal>
+
+                        {/* Contact — dark gradient card */}
+                        <AnimatedReveal delay={0.28}>
+                            <div id="contact" className="bg-gradient-to-br from-primary-900 to-primary-700 rounded-2xl shadow-md overflow-hidden">
+                                <div className="flex items-center gap-4 px-7 py-4 border-b border-white/10">
+                                    <span className="shrink-0 w-8 h-8 rounded-full bg-white/20 text-white flex items-center justify-center text-xs font-bold">
+                                        20
+                                    </span>
+                                    <h2 className="text-base md:text-lg font-bold font-heading text-white uppercase tracking-wide">
+                                        Contact Information
+                                    </h2>
+                                </div>
+                                <div className="px-7 py-6">
+                                    <p className="text-white/75 leading-relaxed mb-5">
+                                        Questions about the Terms of Service should be sent to us at:
+                                    </p>
+                                    <div className="bg-white/10 border border-white/10 rounded-xl px-5 py-4 flex flex-col sm:flex-row gap-4 text-white/85">
+                                        <div className="flex items-start gap-2.5">
+                                            <svg xmlns="http://www.w3.org/2000/svg" className="w-4 h-4 mt-0.5 text-accent shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                                                <path strokeLinecap="round" strokeLinejoin="round" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                                                <path strokeLinecap="round" strokeLinejoin="round" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+                                            </svg>
+                                            <span className="text-sm">8 The Green, Suite A, Dover, DE, 19901, United States</span>
+                                        </div>
+                                        <div className="flex items-center gap-2.5">
+                                            <svg xmlns="http://www.w3.org/2000/svg" className="w-4 h-4 text-accent shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                                                <path strokeLinecap="round" strokeLinejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                                            </svg>
+                                            <a href="mailto:info@getcredentialingdone.com" className="text-sm text-accent underline hover:text-white transition-colors">
+                                                info@getcredentialingdone.com
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </AnimatedReveal>
+
+                    </div>
                 </div>
             </section>
         </div>
