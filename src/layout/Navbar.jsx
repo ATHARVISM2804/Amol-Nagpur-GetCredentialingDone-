@@ -1,7 +1,7 @@
 import { useState, useEffect, useRef } from 'react';
 import { Link, NavLink, useLocation } from 'react-router-dom';
 import { motion, AnimatePresence, useScroll, useSpring } from 'framer-motion';
-import { HiBars3, HiXMark, HiArrowRight, HiChevronDown } from 'react-icons/hi2';
+import { HiBars3, HiXMark, HiArrowRight, HiChevronDown, HiOutlinePhone } from 'react-icons/hi2';
 import { navLinks, serviceDropdownLinks } from '../data/siteData';
 
 export default function Navbar() {
@@ -57,9 +57,9 @@ export default function Navbar() {
             : 'bg-gradient-to-b from-white/70 to-white/30 backdrop-blur-md'
         }`}
       >
-        <nav className="container-custom flex items-center justify-between h-[88px]">
+        <nav className="container-custom flex items-center justify-between h-16 md:h-20 xl:h-[88px]">
           {/* Logo */}
-          <Link to="/" className="flex items-center group">
+          <Link to="/" className="flex items-center group shrink-0">
             <motion.div
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
@@ -67,13 +67,13 @@ export default function Navbar() {
               <img
                 src="https://res.cloudinary.com/dmhabztbf/image/upload/v1772874370/logo-transparent_jzzdlr.png"
                 alt="Get Credentialing Done"
-                className="h-20 w-auto object-contain"
+                className="h-12 md:h-16 xl:h-20 w-auto object-contain"
               />
             </motion.div>
           </Link>
 
           {/* Desktop Nav — pill style */}
-          <div className="hidden lg:flex items-center">
+          <div className="hidden xl:flex items-center">
             <div className="flex items-center bg-gray-50/80 rounded-2xl p-1.5 border border-gray-100/60">
               {navLinks.map((link) =>
                 link.dropdown ? (
@@ -208,7 +208,7 @@ export default function Navbar() {
           <motion.button
             whileTap={{ scale: 0.9 }}
             onClick={() => setIsOpen(!isOpen)}
-            className="lg:hidden w-10 h-10 flex items-center justify-center rounded-xl bg-gray-50 border border-gray-100 text-gray-700"
+            className="xl:hidden w-10 h-10 flex items-center justify-center rounded-xl bg-gray-50 border border-gray-100 text-gray-700"
             aria-label="Toggle menu"
           >
             <AnimatePresence mode="wait">
@@ -233,21 +233,23 @@ export default function Navbar() {
             initial={{ opacity: 0, y: -10 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -10 }}
-            transition={{ duration: 0.25, ease: [0.25, 0.1, 0.25, 1] }}
-            className="lg:hidden absolute top-full left-0 right-0 bg-white/98 backdrop-blur-2xl border-b border-gray-100 shadow-2xl shadow-primary/5"
+            transition={{ duration: 0.2, ease: [0.25, 0.1, 0.25, 1] }}
+            className="xl:hidden absolute top-full left-0 right-0 bg-white border-b border-gray-200 shadow-2xl z-50"
           >
-            <div className="container-custom py-5 space-y-1">
+            <div className="container-custom py-4 space-y-1">
+              {/* Mobile header info */}
+              <div className="flex items-center justify-between px-2 pb-3 mb-1 border-b border-gray-100">
+                <span className="text-xs text-gray-500 font-medium">Navigation</span>
+                <a href="tel:8663183663" className="text-xs font-semibold text-primary flex items-center gap-1">
+                  <HiOutlinePhone className="w-3.5 h-3.5" /> 866-318-3663
+                </a>
+              </div>
               {navLinks.map((link, i) =>
                 link.dropdown ? (
-                  <motion.div
-                    key={link.path}
-                    initial={{ opacity: 0, x: -20 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    transition={{ delay: i * 0.06, duration: 0.3 }}
-                  >
+                  <div key={link.path}>
                     <button
                       onClick={() => setMobileServicesOpen(!mobileServicesOpen)}
-                      className="flex items-center justify-between w-full py-3.5 px-5 rounded-2xl text-sm font-semibold text-gray-700 hover:bg-primary-50/60 hover:text-primary transition-all duration-200"
+                      className="flex items-center justify-between w-full py-3.5 px-4 rounded-xl text-[15px] font-semibold text-gray-900 bg-gray-50 hover:bg-primary-50 hover:text-primary transition-all duration-200"
                     >
                       {link.label}
                       <motion.span animate={{ rotate: mobileServicesOpen ? 180 : 0 }} transition={{ duration: 0.2 }}>
@@ -260,74 +262,65 @@ export default function Navbar() {
                           initial={{ opacity: 0, height: 0 }}
                           animate={{ opacity: 1, height: 'auto' }}
                           exit={{ opacity: 0, height: 0 }}
-                          transition={{ duration: 0.25 }}
-                          className="overflow-hidden pl-4"
+                          transition={{ duration: 0.22 }}
+                          className="overflow-hidden"
                         >
-                          <Link
-                            to="/services"
-                            className="flex items-center py-2.5 px-5 rounded-xl text-xs font-bold uppercase tracking-wider text-primary"
-                          >
-                            All Services
-                          </Link>
-                          {serviceDropdownLinks.map((s) => (
-                            <NavLink
-                              key={s.path}
-                              to={s.path}
-                              className={({ isActive }) =>
-                                `flex items-center justify-between py-2.5 px-5 rounded-xl text-sm font-medium transition-all duration-200 ${
-                                  isActive
-                                    ? 'text-primary bg-primary/5'
-                                    : 'text-gray-600 hover:bg-primary-50/60 hover:text-primary'
-                                }`
-                              }
+                          <div className="mt-1 ml-3 border-l-2 border-primary/20 pl-3 space-y-0.5 py-1">
+                            <Link
+                              to="/services"
+                              className="flex items-center py-2 px-3 rounded-lg text-xs font-bold uppercase tracking-wider text-primary hover:bg-primary/5 transition-colors"
                             >
-                              {s.label}
-                            </NavLink>
-                          ))}
+                              All Services →
+                            </Link>
+                            {serviceDropdownLinks.map((s) => (
+                              <NavLink
+                                key={s.path}
+                                to={s.path}
+                                className={({ isActive }) =>
+                                  `flex items-center justify-between py-2.5 px-3 rounded-lg text-[14px] font-medium transition-all duration-150 ${
+                                    isActive
+                                      ? 'text-primary bg-primary/8 font-semibold'
+                                      : 'text-gray-800 hover:bg-primary/5 hover:text-primary'
+                                  }`
+                                }
+                              >
+                                {s.label}
+                              </NavLink>
+                            ))}
+                          </div>
                         </motion.div>
                       )}
                     </AnimatePresence>
-                  </motion.div>
+                  </div>
                 ) : (
-                  <motion.div
+                  <NavLink
                     key={link.path}
-                    initial={{ opacity: 0, x: -20 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    transition={{ delay: i * 0.06, duration: 0.3 }}
+                    to={link.path}
+                    className={({ isActive }) =>
+                      `flex items-center justify-between py-3.5 px-4 rounded-xl text-[15px] font-semibold transition-all duration-150 ${
+                        isActive
+                          ? 'text-white bg-gradient-to-r from-primary to-primary-600 shadow-md'
+                          : 'text-gray-900 bg-gray-50 hover:bg-primary-50 hover:text-primary'
+                      }`
+                    }
                   >
-                    <NavLink
-                      to={link.path}
-                      className={({ isActive }) =>
-                        `flex items-center justify-between py-3.5 px-5 rounded-2xl text-sm font-semibold transition-all duration-200 ${
-                          isActive
-                            ? 'text-white bg-gradient-to-r from-primary to-primary-600 shadow-md'
-                            : 'text-gray-700 hover:bg-primary-50/60 hover:text-primary'
-                        }`
-                      }
-                    >
-                      {({ isActive }) => (
-                        <>
-                          {link.label}
-                          {isActive && <div className="w-2 h-2 rounded-full bg-accent" />}
-                        </>
-                      )}
-                    </NavLink>
-                  </motion.div>
+                    {({ isActive }) => (
+                      <>
+                        {link.label}
+                        {isActive && <div className="w-2 h-2 rounded-full bg-accent" />}
+                      </>
+                    )}
+                  </NavLink>
                 )
               )}
-              <motion.div
-                initial={{ opacity: 0, y: 10 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.3 }}
-                className="pt-3"
-              >
+              <div className="pt-3 pb-1">
                 <Link
                   to="/contact"
-                  className="flex items-center justify-center gap-2 w-full bg-gradient-to-r from-accent to-red-600 text-white font-bold py-3.5 rounded-2xl shadow-lg shadow-accent/20"
+                  className="flex items-center justify-center gap-2 w-full bg-gradient-to-r from-accent to-red-600 text-white font-bold py-4 rounded-2xl shadow-lg shadow-accent/25 text-[15px]"
                 >
                   Get Started <HiArrowRight className="w-4 h-4" />
                 </Link>
-              </motion.div>
+              </div>
             </div>
           </motion.div>
         )}
