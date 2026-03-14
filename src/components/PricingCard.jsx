@@ -1,10 +1,23 @@
+import { useState } from 'react';
 import { HiCheck } from 'react-icons/hi2';
 import { motion } from 'framer-motion';
 import Button from './Button';
 import AnimatedReveal from './AnimatedReveal';
+import { redirectToCheckout } from '../utils/stripe';
 
 export default function PricingCard({ plan, index }) {
-  const { name, description, price, features, highlighted } = plan;
+  const { name, description, price, features, highlighted, priceId } = plan;
+  const [loading, setLoading] = useState(false);
+
+  const handleBuyNow = async () => {
+    if (!priceId) return;
+    setLoading(true);
+    try {
+      await redirectToCheckout(priceId);
+    } finally {
+      setLoading(false);
+    }
+  };
 
   return (
     <AnimatedReveal animation="fadeUp" delay={index * 0.15}>
@@ -104,14 +117,26 @@ export default function PricingCard({ plan, index }) {
                </div>
             )}
             <div className="mt-6">
-              <Button
-                to="/contact"
-                variant={highlighted ? 'white' : 'primary'}
-                size="lg"
-                className="w-full"
-              >
-                Buy Now
-              </Button>
+              {priceId ? (
+                <Button
+                  variant={highlighted ? 'white' : 'primary'}
+                  size="lg"
+                  className="w-full"
+                  onClick={handleBuyNow}
+                  disabled={loading}
+                >
+                  {loading ? 'Redirecting...' : 'Buy Now'}
+                </Button>
+              ) : (
+                <Button
+                  to="/contact"
+                  variant={highlighted ? 'white' : 'primary'}
+                  size="lg"
+                  className="w-full"
+                >
+                  Contact Us
+                </Button>
+              )}
             </div>
           </div>
 
