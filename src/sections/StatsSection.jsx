@@ -79,8 +79,7 @@ export default function StatsSection() {
             const Icon = statIcons[i];
             const color = statColors[i];
             // Proportional ring fill (visual only)
-            const maxVal = Math.max(...stats.map(s => s.value));
-            const ringProgress = stat.value / maxVal;
+            const ringProgress = 1;
 
             return (
               <AnimatedReveal key={i} animation="fadeUp" delay={i * 0.15}>
