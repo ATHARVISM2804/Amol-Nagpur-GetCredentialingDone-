@@ -6,7 +6,7 @@ import { HiOutlineShieldCheck, HiOutlineClock, HiOutlineCheckBadge } from 'react
 const trustBadges = [
   { icon: HiOutlineShieldCheck, label: 'HIPAA Compliant' },
   { icon: HiOutlineClock, label: 'Fast Turnaround' },
-  { icon: HiOutlineCheckBadge, label: 'Guaranteed Results' },
+  { icon: HiOutlineCheckBadge, label: 'Fair Pricing' },
 ];
 
 export default function CTASection() {

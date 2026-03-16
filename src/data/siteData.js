@@ -457,7 +457,7 @@ export const services = [
     bullets: [
       'CAQH profile setup & maintenance',
       'State license verification',
-      'DEA & NPI registration support',
+      'NPI registration support',
       'Primary source verification',
       'Application tracking & follow-up',
     ],
@@ -477,14 +477,14 @@ export const services = [
     ],
   },
   {
-    id: 'payor',
-    title: 'Payor Enrollment & Network Participation',
+    id: 'payer',
+    title: 'Insurance Enrollment & Network Participation',
     description:
-      'Getting enrolled with insurance payors is critical to your revenue. We manage payor enrollment from start to finish including Medicare, Medicaid, and all major commercial insurers — ensuring maximum network participation for your practice.',
+      'Getting enrolled with insurance payers is critical to your revenue. We manage payer enrollment from start to finish including Medicare, Medicaid, and all major commercial insurers — ensuring maximum network participation for your practice.',
     image: 'https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=800&q=80',
     bullets: [
       'Medicare & Medicaid enrollment',
-      'Commercial payor applications',
+      'Commercial payer applications',
       'Network participation agreements',
       'Contract negotiation support',
       'Re-validation & re-enrollment',
@@ -500,22 +500,22 @@ export const whyChooseUs = [
   },
   {
     icon: HiOutlineCog6Tooth,
-    title: 'Great Software',
+    title: 'Great Credentialing Process',
     description: 'Cutting-edge technology to track every application in real time.',
   },
   {
     icon: HiOutlineFaceSmile,
-    title: 'Friendly Service',
+    title: 'High Success Rate',
     description: 'A team that genuinely cares about your success and satisfaction.',
   },
   {
     icon: HiOutlineEye,
-    title: 'Visibility',
+    title: 'Transparent Process',
     description: 'Full transparency into where every application stands at all times.',
   },
   {
     icon: HiOutlineCurrencyDollar,
-    title: 'Transparent Pricing',
+    title: 'Fair Pricing',
     description: 'No hidden fees. You know exactly what you pay and what you get.',
   },
   {

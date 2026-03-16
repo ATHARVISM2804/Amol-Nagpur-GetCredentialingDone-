@@ -153,8 +153,8 @@ export default function About() {
     <>
       <PageHero
         subtitle="About Us"
-        title="Simplify Your Practice with Our Medical Billing and Credentialing Services"
-        description="Expert medical billing and credentialing services to help you navigate the complex process efficiently and effectively."
+        title="Simplify Your Practice with Our Credentialing Services"
+        description="Expert credentialing services to help you navigate the complex process efficiently and effectively."
       />
 
       {/* ==================== INTRO WITH IMAGE ==================== */}
@@ -212,12 +212,12 @@ export default function About() {
               </h2>
               <div className="space-y-4 text-gray-500 text-[0.935rem] md:text-base leading-relaxed">
                 <p>
-                  Medical billing and credentialing services involve credentialing, a process by which insurance carriers, facilities, and hospitals verify that a medical provider meets various quality and regulatory standards. This can be complex and time-consuming, as it entails review of education, medical licenses, state and federal registrations and certifications, professional liability coverage, and other documents.
+                 Credentialing services involve credentialing, a process by which insurance carriers, facilities, and hospitals verify that a medical provider meets various quality and regulatory standards. This can be complex and time-consuming, as it entails review of education, medical licenses, state and federal registrations and certifications, professional liability coverage, and other documents.
                 </p>
                 <p>
                   Our expert{' '}
-                  <span className="font-semibold text-primary">medical billing</span>{' '}
-                  and credentialing services can help you navigate this complex process efficiently and effectively. We work closely with you to understand your needs and determine which insurance carriers and networks you want to participate with, including{' '}
+                  <span className="font-semibold text-primary">Credentailing Service </span>{' '}
+                   can help you navigate this complex process efficiently and effectively. We work closely with you to understand your needs and determine which insurance carriers and networks you want to participate with, including{' '}
                   <Link to="/services" className="font-semibold text-primary underline decoration-primary/30 decoration-2 underline-offset-2 hover:decoration-primary/80 transition-all duration-300">Medicare</Link>,{' '}
                   <Link to="/services" className="font-semibold text-primary underline decoration-primary/30 decoration-2 underline-offset-2 hover:decoration-primary/80 transition-all duration-300">Medicaid</Link>,{' '}
                   <Link to="/services" className="font-semibold text-primary underline decoration-primary/30 decoration-2 underline-offset-2 hover:decoration-primary/80 transition-all duration-300">commercial</Link>{' '}
@@ -261,7 +261,7 @@ export default function About() {
                   By managing the entire credentialing process, we ensure that your applications are submitted accurately and on time, reducing delays and rejections. Additionally, our team stays updated with changing regulations and requirements, giving you peace of mind that your credentialing process is in expert hands.
                 </p>
                 <p>
-                  Through our comprehensive medical billing and credentialing services, we also help you maintain compliance with ongoing credentialing updates, revalidations, and renewals. This allows you to focus on patient care while we handle the administrative burdens. Our services are designed to <span className="font-medium text-gray-700">streamline operations</span>, <span className="font-medium text-gray-700">increase revenue</span>, and <span className="font-medium text-gray-700">improve your overall practice efficiency</span> by ensuring you are credentialed with the right payers promptly.
+                  Through our comprehensive credentialing services, we also help you maintain compliance with ongoing credentialing updates, revalidations, and renewals. This allows you to focus on patient care while we handle the administrative burdens. Our services are designed to <span className="font-medium text-gray-700">streamline operations</span>, <span className="font-medium text-gray-700">increase revenue</span>, and <span className="font-medium text-gray-700">improve your overall practice efficiency</span> by ensuring you are credentialed with the right payers promptly.
                 </p>
               </div>
             </div>
@@ -281,7 +281,7 @@ export default function About() {
         <AnimatedReveal animation="fadeUp">
           <SectionHeading
             subtitle="What We Cover"
-            title="Our Comprehensive Medical Billing and Credentialing Services Include"
+            title="Our Comprehensive Credentialing Services Include"
             description="End-to-end support from application to enrollment."
           />
         </AnimatedReveal>

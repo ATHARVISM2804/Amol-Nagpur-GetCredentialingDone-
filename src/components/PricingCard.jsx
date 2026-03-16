@@ -9,7 +9,11 @@ export default function PricingCard({ plan, index }) {
   return (
     <AnimatedReveal animation="fadeUp" delay={index * 0.15}>
       <motion.div
-        whileHover={{ y: highlighted ? -12 : -8, transition: { type: 'spring', stiffness: 300 } }}
+        whileHover={{ 
+          y: highlighted ? -16 : -8, 
+          scale: highlighted ? 1.05 : 1,
+          transition: { type: 'spring', stiffness: 300, damping: 20 } 
+        }}
         className={`group relative rounded-3xl h-full flex flex-col transition-all duration-500 cursor-pointer ${
           highlighted ? 'z-10' : ''
         }`}
@@ -24,40 +28,40 @@ export default function PricingCard({ plan, index }) {
         />
 
         {/* Animated glow on hover */}
-        <div className={`absolute -inset-3 rounded-[2rem] blur-xl transition-opacity duration-700 ${
+        <div className={`absolute -inset-3 rounded-[2rem] blur-xl transition-all duration-700 ${
           highlighted
-            ? 'bg-accent/30 opacity-100 group-hover:opacity-80'
+            ? 'bg-accent/30 opacity-100 group-hover:opacity-100 group-hover:bg-accent/60 group-hover:blur-2xl group-hover:scale-105'
             : 'bg-primary/10 opacity-0 group-hover:opacity-100'
         }`} />
 
-        <div className={`relative rounded-3xl p-8 md:p-10 flex-1 flex flex-col shadow-2xl ${
+        {highlighted && (
+          <motion.span
+            initial={{ y: -20, opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
+            transition={{ delay: 0.3, type: 'spring' }}
+            className="absolute -top-4 left-1/2 -translate-x-1/2 bg-gradient-to-r from-accent to-accent-600 text-white text-xs font-bold px-5 py-1.5 rounded-full shadow-glow-accent group-hover:scale-110 group-hover:brightness-110 transition-all duration-300 z-20"
+          >
+            Most Popular
+          </motion.span>
+        )}
+
+        <div className={`relative rounded-3xl p-8 md:p-10 flex-1 flex flex-col shadow-2xl transition-all duration-500 overflow-hidden ${
           highlighted
-            ? 'bg-gradient-to-br from-primary via-primary-600 to-primary-800 text-white border border-primary-500/30'
+            ? 'bg-gradient-to-br from-primary via-primary-600 to-primary-800 text-white border border-primary-500/30 group-hover:shadow-[0_0_50px_-5px_rgba(255,255,255,0.3)]'
             : 'bg-white/95 backdrop-blur-sm text-gray-800 border border-gray-100/50 hover:border-primary/20'
         }`}>
-          {highlighted && (
-            <motion.span
-              initial={{ y: -20, opacity: 0 }}
-              animate={{ y: 0, opacity: 1 }}
-              transition={{ delay: 0.3, type: 'spring' }}
-              className="absolute -top-4 left-1/2 -translate-x-1/2 bg-gradient-to-r from-accent to-accent-600 text-white text-xs font-bold px-5 py-1.5 rounded-full shadow-glow-accent"
-            >
-              Most Popular
-            </motion.span>
-          )}
-
           {/* Decorative gradient orbs */}
           {highlighted && (
             <>
               <motion.div
                 animate={{ scale: [1, 1.3, 1], opacity: [0.05, 0.1, 0.05] }}
                 transition={{ duration: 6, repeat: Infinity, ease: 'easeInOut' }}
-                className="absolute top-0 right-0 w-48 h-48 bg-white/10 rounded-full blur-3xl"
+                className="absolute top-0 right-0 w-48 h-48 bg-white/10 rounded-full blur-3xl group-hover:bg-accent/40 group-hover:blur-2xl transition-all duration-500"
               />
               <motion.div
                 animate={{ scale: [1, 1.2, 1], opacity: [0.03, 0.08, 0.03] }}
                 transition={{ duration: 8, repeat: Infinity, ease: 'easeInOut', delay: 2 }}
-                className="absolute bottom-0 left-0 w-32 h-32 bg-accent/20 rounded-full blur-3xl"
+                className="absolute bottom-0 left-0 w-32 h-32 bg-accent/20 rounded-full blur-3xl group-hover:bg-white/30 group-hover:blur-2xl transition-all duration-500"
               />
             </>
           )}

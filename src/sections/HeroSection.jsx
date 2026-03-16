@@ -267,7 +267,7 @@ export default function HeroSection() {
                   </svg>
                 </div>
                 <div>
-                  <p className="text-sm font-bold text-gray-900">Credentialing Complete</p>
+                  <p className="text-sm font-bold text-gray-900">Transfer and Process</p>
                   <p className="text-xs text-gray-500">Average 45 days faster</p>
                 </div>
               </motion.div>
