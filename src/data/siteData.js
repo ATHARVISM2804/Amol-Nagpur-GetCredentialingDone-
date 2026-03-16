@@ -587,30 +587,33 @@ export const testimonials = [
 export const blogPosts = [
   {
     id: 1,
-    title: 'The Complete Guide to Insurance Credentialing in 2026',
+    title: 'How to Get Credentialed with Medicaid as a Mental Health Provider',
     category: 'Credentialing',
-    excerpt:
-      'Everything healthcare providers need to know about the credentialing process, timelines, and how to avoid common pitfalls.',
-    image: 'https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=600&q=80',
-    date: 'Feb 15, 2026',
+    author: 'Get Credentialing Done',
+    comments: 0,
+    excerpt: 'Learn the essential steps and requirements for mental health providers to successfully enroll and get credentialed with Medicaid.',
+    image: 'https://images.unsplash.com/photo-1551836022-d5d88e9218df?w=600&q=80',
+    date: '13/03/2026',
   },
   {
     id: 2,
-    title: 'Medicare Enrollment Changes You Need to Know',
+    title: 'Medicare Credentialing Guide for New Providers',
     category: 'Medicare',
-    excerpt:
-      "Recent updates to Medicare enrollment requirements and what they mean for your practice's revenue cycle.",
-    image: 'https://images.unsplash.com/photo-1530497610245-94d3c16cda28?w=600&q=80',
-    date: 'Feb 8, 2026',
+    author: 'Get Credentialing Done',
+    comments: 0,
+    excerpt: 'Detailed guide on Medicare credentialing for new healthcare providers to ensure a smooth enrollment process.',
+    image: 'https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=600&q=80',
+    date: '06/03/2026',
   },
   {
     id: 3,
-    title: 'How Group Practices Can Streamline Credentialing',
+    title: 'Credentialing Requirements for Physical Therapists & Rehab Clinics',
     category: 'Practice Management',
-    excerpt:
-      'Best practices for multi-provider organizations to reduce credentialing timelines and administrative burden.',
-    image: 'https://images.unsplash.com/photo-1666214280557-f1b5022eb634?w=600&q=80',
-    date: 'Jan 28, 2026',
+    author: 'Get Credentialing Done',
+    comments: 0,
+    excerpt: 'Discover what physical therapists and rehab clinics need to know about the credentialing requirements and compliance.',
+    image: 'https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=600&q=80',
+    date: '26/02/2026',
   },
 ];
 
