@@ -2,7 +2,6 @@ import { motion, useInView } from 'framer-motion';
 import { useRef } from 'react';
 import AnimatedReveal from '../components/AnimatedReveal';
 import SectionWrapper from '../components/SectionWrapper';
-import { HiOutlineCheckCircle } from 'react-icons/hi2';
 
 const progressStats = [
   { label: 'Efficiency', value: 98 },
@@ -187,7 +186,7 @@ export default function VisionMission() {
                     transition={{ duration: 0.4, delay: 0.35 + i * 0.08 }}
                     className="flex items-start gap-3 group/item"
                   >
-                    <HiOutlineCheckCircle className="w-5 h-5 mt-0.5 text-accent flex-shrink-0 group-hover/item:scale-110 transition-transform duration-300" />
+                      <div className="w-1.5 h-1.5 mt-2 rounded-full bg-accent flex-shrink-0 group-hover/item:scale-125 transition-transform duration-300" />
                     <span className="text-gray-700 text-[0.925rem] leading-relaxed font-medium group-hover/item:text-gray-900 transition-colors duration-300">
                       {item}
                     </span>

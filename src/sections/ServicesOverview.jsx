@@ -5,7 +5,7 @@ import SectionHeading from '../components/SectionHeading';
 import AnimatedReveal from '../components/AnimatedReveal';
 import Button from '../components/Button';
 import { services } from '../data/siteData';
-import { HiArrowRight, HiCheckCircle } from 'react-icons/hi2';
+import { HiArrowRight } from 'react-icons/hi2';
 
 function TiltImage({ service, index }) {
   const x = useMotionValue(0);
@@ -63,7 +63,7 @@ function TiltImage({ service, index }) {
           style={{ transform: 'translateZ(40px)' }}
         >
           <span className={`px-3 py-1.5 rounded-full text-white text-xs font-bold ${badges[index][1]} shadow-lg backdrop-blur-sm flex items-center gap-1.5`}>
-            <HiCheckCircle className="w-3.5 h-3.5" />
+            <div className="w-1.5 h-1.5 rounded-full bg-white" />
             {badges[index][0]}
           </span>
         </motion.div>
@@ -182,10 +182,10 @@ export default function ServicesOverview() {
                       >
                         <motion.span
                           animate={hoveredBullet === `${index}-${i}` ? { scale: 1.3 } : { scale: 1 }}
-                          className="shrink-0"
+                          className="shrink-0 flex items-center justify-center w-5 h-5 bg-transparent"
                         >
-                          <HiCheckCircle className={`w-5 h-5 transition-colors duration-300 ${
-                            hoveredBullet === `${index}-${i}` ? 'text-primary' : 'text-accent/60'
+                          <div className={`w-2 h-2 rounded-full transition-colors duration-300 ${
+                            hoveredBullet === `${index}-${i}` ? 'bg-primary' : 'bg-accent/60'
                           }`} />
                         </motion.span>
                         <span className="font-medium">{bullet}</span>

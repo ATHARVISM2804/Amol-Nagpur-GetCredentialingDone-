@@ -8,7 +8,6 @@ import AnimatedReveal from '../components/AnimatedReveal';
 import CTASection from '../sections/CTASection';
 import { services } from '../data/siteData';
 import {
-  HiCheck,
   HiArrowRight,
   HiOutlineArrowPath,
   HiOutlineClipboardDocumentList,
@@ -264,7 +263,7 @@ export default function Services() {
                             whileHover={{ scale: 1.3, rotate: 10 }}
                             className="w-6 h-6 rounded-lg bg-gradient-to-br from-accent to-accent-600 flex items-center justify-center mt-0.5 shrink-0 shadow-sm"
                           >
-                            <HiCheck className="w-3.5 h-3.5 text-white" />
+                            <div className="w-1.5 h-1.5 rounded-full bg-white" />
                           </motion.span>
                           <span className="text-sm leading-relaxed group-hover/bullet:text-gray-900 transition-colors duration-200">{bullet}</span>
                         </motion.li>

@@ -1,4 +1,3 @@
-import { HiCheck } from 'react-icons/hi2';
 import { motion } from 'framer-motion';
 import Button from './Button';
 import AnimatedReveal from './AnimatedReveal';
@@ -135,7 +134,7 @@ export default function PricingCard({ plan, index }) {
                     highlighted ? 'bg-white/15' : 'bg-gradient-to-br from-accent/15 to-accent/5'
                   }`}
                 >
-                  <HiCheck className={`w-3 h-3 ${highlighted ? 'text-accent-200' : 'text-accent'}`} />
+                  <div className={`w-1.5 h-1.5 rounded-full ${highlighted ? 'bg-accent-200' : 'bg-accent'}`} />
                 </motion.span>
                 <span className={`text-sm leading-relaxed ${
                   highlighted ? 'text-blue-50' : 'text-gray-600'

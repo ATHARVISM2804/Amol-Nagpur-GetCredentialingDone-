@@ -1,7 +1,7 @@
 import { useParams, Link, Navigate } from 'react-router-dom';
 import { motion, useMotionValue, useTransform, useSpring } from 'framer-motion';
 import {
-  HiCheck, HiArrowRight, HiArrowLeft,
+  HiArrowRight, HiArrowLeft,
   HiOutlineCheckBadge, HiOutlineClipboardDocumentList,
   HiOutlineShieldCheck, HiOutlineRocketLaunch,
 } from 'react-icons/hi2';
@@ -161,7 +161,7 @@ export default function ServiceDetail() {
                       className="flex items-start gap-3"
                     >
                       <span className="w-5 h-5 rounded-lg bg-gradient-to-br from-accent/20 to-accent/5 flex items-center justify-center shrink-0 mt-0.5">
-                        <HiCheck className="w-3 h-3 text-accent" />
+                          <div className="w-1 h-1 rounded-full bg-accent" />
                       </span>
                       <span className="text-gray-600 text-sm leading-relaxed">{feature}</span>
                     </motion.div>
