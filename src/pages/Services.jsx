@@ -80,29 +80,29 @@ const expertReasons = [
 /* ---- Credentialing Process Steps ---- */
 const processSteps = [
   {
-    title: 'Verify Your Background',
-    description: 'We carefully check your education, licenses, and history to make sure all your records are correct and complete.',
-    icon: HiOutlineMagnifyingGlass,
+    title: 'Fill Out Pre-Credentialing Checklist',
+    description: 'We begin with a simple checklist to gather essential information and assess your specific credentialing needs from the start.',
+    icon: HiOutlineCheckBadge,
   },
   {
-    title: 'Insurance Enrollment',
-    description: 'We manage the entire application process for all the insurance networks you want to join, helping you reach more patients and boost your revenue potential.',
+    title: 'Collect Required Documents',
+    description: 'Our team guides you in compiling all necessary paperwork, from licenses and diplomas to malpractice insurance, ensuring nothing is missed.',
+    icon: HiOutlineClipboardDocumentList,
+  },
+  {
+    title: 'Credentialing Application Submission',
+    description: 'We meticulously prepare and submit all applications to the insurance payers on your behalf, minimizing errors and rejections.',
     icon: HiOutlineDocumentCheck,
   },
   {
-    title: 'Keep Your Current Credentialing',
-    description: 'Credentialing is ongoing! We stay on top of renewal dates and other requirements, ensuring your practice stays approved and your revenue keeps flowing without interruption.',
-    icon: HiOutlineArrowPath,
-  },
-  {
-    title: 'Help with Denials',
-    description: 'If an application gets unexpectedly denied, we step in right away to fix the issue quickly and efficiently.',
-    icon: HiOutlineExclamationTriangle,
-  },
-  {
-    title: 'Ongoing Support',
-    description: 'We provide continuous guidance and support, keeping you informed about any changes in credentialing rules.',
+    title: 'Follow-Up on Credentialing Applications',
+    description: 'Our team actively monitors your application status and routinely follows up with insurance payers to keep the process moving forward.',
     icon: HiOutlineChatBubbleLeftRight,
+  },
+  {
+    title: 'Approval Confirmation',
+    description: 'Once all verifications and steps are successfully completed, we deliver the final approval confirmation so you can start seeing patients.',
+    icon: HiOutlineSparkles,
   },
 ];
 
@@ -386,24 +386,18 @@ export default function Services() {
                     <motion.div className={`absolute -inset-[2px] rounded-3xl bg-gradient-to-br ${item.gradient} blur-sm opacity-0 group-hover:opacity-50 transition-opacity duration-500`} />
                     <div className="relative p-7 rounded-3xl bg-white/[0.06] backdrop-blur-md border border-white/[0.1] group-hover:bg-white/[0.12] group-hover:border-white/[0.2] h-full transition-all duration-500 overflow-hidden">
                       <div className={`absolute top-0 right-0 w-20 h-20 bg-gradient-to-bl ${item.gradient} opacity-[0.06] group-hover:opacity-[0.12] rounded-bl-[3rem] transition-opacity duration-500`} />
-                      <div className="relative">
+                      <div className="relative flex flex-col items-center text-center">
                         <motion.div
-                          whileHover={{ rotate: 6, scale: 1.1 }}
-                          className={`w-13 h-13 rounded-2xl bg-gradient-to-br ${item.gradient} flex items-center justify-center mb-5 shadow-lg shadow-black/20 ring-1 ring-white/[0.15]`}
+                          whileHover={{ scale: 1.1, rotate: [0, -10, 10, 0] }}
+                          transition={{ type: "spring", stiffness: 300, damping: 10 }}
+                          className={`w-[4.5rem] h-[4.5rem] rounded-2xl bg-gradient-to-br ${item.gradient} flex items-center justify-center mb-6 shadow-xl ring-2 ring-white/[0.15]`}
                         >
-                          <Icon className="w-6 h-6 text-white" />
+                          <Icon className="w-8 h-8 text-white drop-shadow-md" />
                         </motion.div>
-                        <h4 className="text-[1.05rem] font-heading font-bold text-white mb-2 group-hover:text-accent-200 transition-colors duration-300">
+                        <h4 className="text-[1.15rem] font-heading font-bold text-white mb-3 group-hover:text-accent-200 transition-colors duration-300">
                           {item.title}
                         </h4>
-                        <motion.div
-                          initial={{ scaleX: 0 }}
-                          whileInView={{ scaleX: 1 }}
-                          viewport={{ once: true }}
-                          transition={{ delay: 0.3 + i * 0.1, duration: 0.5 }}
-                          className={`w-10 h-[2px] rounded-full bg-gradient-to-r ${item.gradient} mb-3 origin-left`}
-                        />
-                        <p className="text-[0.82rem] text-blue-100/50 leading-relaxed group-hover:text-blue-100/75 transition-colors duration-300">
+                        <p className="text-[0.85rem] text-blue-100/60 leading-relaxed group-hover:text-blue-100/80 transition-colors duration-300">
                           {item.description}
                         </p>
                       </div>
@@ -426,24 +420,18 @@ export default function Services() {
                     <motion.div className={`absolute -inset-[2px] rounded-3xl bg-gradient-to-br ${item.gradient} blur-sm opacity-0 group-hover:opacity-50 transition-opacity duration-500`} />
                     <div className="relative p-7 rounded-3xl bg-white/[0.06] backdrop-blur-md border border-white/[0.1] group-hover:bg-white/[0.12] group-hover:border-white/[0.2] h-full transition-all duration-500 overflow-hidden">
                       <div className={`absolute top-0 right-0 w-20 h-20 bg-gradient-to-bl ${item.gradient} opacity-[0.06] group-hover:opacity-[0.12] rounded-bl-[3rem] transition-opacity duration-500`} />
-                      <div className="relative">
+                      <div className="relative flex flex-col items-center text-center">
                         <motion.div
-                          whileHover={{ rotate: 6, scale: 1.1 }}
-                          className={`w-13 h-13 rounded-2xl bg-gradient-to-br ${item.gradient} flex items-center justify-center mb-5 shadow-lg shadow-black/20 ring-1 ring-white/[0.15]`}
+                          whileHover={{ scale: 1.1, rotate: [0, -10, 10, 0] }}
+                          transition={{ type: "spring", stiffness: 300, damping: 10 }}
+                          className={`w-[4.5rem] h-[4.5rem] rounded-2xl bg-gradient-to-br ${item.gradient} flex items-center justify-center mb-6 shadow-xl ring-2 ring-white/[0.15]`}
                         >
-                          <Icon className="w-6 h-6 text-white" />
+                          <Icon className="w-8 h-8 text-white drop-shadow-md" />
                         </motion.div>
-                        <h4 className="text-[1.05rem] font-heading font-bold text-white mb-2 group-hover:text-accent-200 transition-colors duration-300">
+                        <h4 className="text-[1.15rem] font-heading font-bold text-white mb-3 group-hover:text-accent-200 transition-colors duration-300">
                           {item.title}
                         </h4>
-                        <motion.div
-                          initial={{ scaleX: 0 }}
-                          whileInView={{ scaleX: 1 }}
-                          viewport={{ once: true }}
-                          transition={{ delay: 0.3 + (i + 3) * 0.1, duration: 0.5 }}
-                          className={`w-10 h-[2px] rounded-full bg-gradient-to-r ${item.gradient} mb-3 origin-left`}
-                        />
-                        <p className="text-[0.82rem] text-blue-100/50 leading-relaxed group-hover:text-blue-100/75 transition-colors duration-300">
+                        <p className="text-[0.85rem] text-blue-100/60 leading-relaxed group-hover:text-blue-100/80 transition-colors duration-300">
                           {item.description}
                         </p>
                       </div>
@@ -724,7 +712,7 @@ export default function Services() {
               description: 'Proactive monitoring and alerts for license expirations and renewals.',
             },
             {
-              title: 'Privilege Delineation',
+              title: 'Rates Negotiation',
               description: 'Assistance with hospital privilege applications and renewals.',
             },
             {

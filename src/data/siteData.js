@@ -40,7 +40,7 @@ export const servicePages = [
   {
     slug: 'group-credentialing',
     title: 'Group Credentialing',
-    tagline: 'Streamlined credentialing for your entire practice group.',
+    tagline: 'Streamlined credentialing for your entire Practice Group.',
     description: 'Our group credentialing service handles the complete enrollment process for multi-provider practices and healthcare organizations. We manage every payer, every provider, and every document — so your group can see patients and get reimbursed faster.',
     intro: [
       "Group credentialing can be a huge headache, taking up time and pulling you away from patient care. But it doesn't have to be. At Get Credentialing Done, we make it simple, giving you back precious hours in your day.",
@@ -664,7 +664,7 @@ export const pricingPlans = [
     name: 'Monthly Fee',
     description: 'Ongoing maintenance & tracking',
     price: '$200 per provider',
-    pertext: 'per month',
+    pertext: 'per pair',
     features: [
       'Credentialing tracking',
       'Re-cred calendar management',
