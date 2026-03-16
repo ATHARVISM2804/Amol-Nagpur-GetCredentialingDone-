@@ -269,13 +269,15 @@ export default function Services() {
                         </motion.li>
                       ))}
                     </ul>
-                    <motion.button
-                      whileHover={{ x: 8 }}
-                      transition={{ type: 'spring', stiffness: 400 }}
-                      className="inline-flex items-center gap-2 mt-8 px-6 py-2.5 bg-primary-50 text-primary font-semibold text-sm rounded-xl hover:bg-primary hover:text-white transition-all duration-300"
-                    >
-                      Learn More <HiArrowRight className="w-4 h-4" />
-                    </motion.button>
+                    <Link to={service.link || "/services"}>
+                      <motion.button
+                        whileHover={{ x: 8 }}
+                        transition={{ type: 'spring', stiffness: 400 }}
+                        className="inline-flex items-center gap-2 mt-8 px-6 py-2.5 bg-primary-50 text-primary font-semibold text-sm rounded-xl hover:bg-primary hover:text-white transition-all duration-300"
+                      >
+                        Learn More <HiArrowRight className="w-4 h-4" />
+                      </motion.button>
+                    </Link>
                   </div>
                 </AnimatedReveal>
 

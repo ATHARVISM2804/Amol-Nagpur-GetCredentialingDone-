@@ -193,7 +193,7 @@ export default function TermsOfService() {
                             <SectionCard id="personal-info" number={10} title="Personal Information">
                                 <p>
                                     Your submission of personal information through the store is governed by our Privacy Policy. To view our Privacy Policy, please visit our{' '}
-                                    <a href="/privacy-policy" className="text-primary underline hover:text-primary-700 transition-colors font-medium">Privacy Policy page</a>.
+                                    <a href="/privacypolicy" className="text-primary underline hover:text-primary-700 transition-colors font-medium">Privacy Policy page</a>.
                                 </p>
                             </SectionCard>
                         </AnimatedReveal>

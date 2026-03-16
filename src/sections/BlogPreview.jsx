@@ -36,15 +36,6 @@ export default function BlogPreview() {
           <BlogCard key={post.id} post={post} index={i} />
         ))}
       </div>
-
-      {/* View all link */}
-      <AnimatedReveal animation="fadeUp" delay={0.4}>
-        <div className="text-center mt-14">
-          <Button to="/blog" variant="ghost" size="md" icon={<HiArrowRight className="w-4 h-4" />}>
-            View All Articles
-          </Button>
-        </div>
-      </AnimatedReveal>
     </SectionWrapper>
   );
 }

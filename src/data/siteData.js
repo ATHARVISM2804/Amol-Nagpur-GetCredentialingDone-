@@ -450,6 +450,7 @@ export const servicePages = [
 export const services = [
   {
     id: 'individual',
+    link: '/services/individual-provider-credentialing',
     title: 'Individual Provider Credentialing',
     description:
       'We handle the entire credentialing process for individual healthcare providers — from initial applications through approval. Our team ensures every form, document, and follow-up is completed accurately and on time so you can start seeing patients sooner.',
@@ -464,6 +465,7 @@ export const services = [
   },
   {
     id: 'group',
+    link: '/services/group-credentialing',
     title: 'Group Credentialing',
     description:
       'Our group credentialing services help multi-provider practices and organizations get credentialed efficiently. We coordinate across all providers, manage documentation centrally, and ensure every member of your group is enrolled with the payors you need.',
@@ -478,6 +480,7 @@ export const services = [
   },
   {
     id: 'payer',
+    link: '/services/commercial-credentialing',
     title: 'Insurance Enrollment & Network Participation',
     description:
       'Getting enrolled with insurance payers is critical to your revenue. We manage payer enrollment from start to finish including Medicare, Medicaid, and all major commercial insurers — ensuring maximum network participation for your practice.',

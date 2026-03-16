@@ -218,9 +218,9 @@ export default function About() {
                   Our expert{' '}
                   <span className="font-semibold text-primary">Credentailing Service </span>{' '}
                    can help you navigate this complex process efficiently and effectively. We work closely with you to understand your needs and determine which insurance carriers and networks you want to participate with, including{' '}
-                  <Link to="/services" className="font-semibold text-primary underline decoration-primary/30 decoration-2 underline-offset-2 hover:decoration-primary/80 transition-all duration-300">Medicare</Link>,{' '}
-                  <Link to="/services" className="font-semibold text-primary underline decoration-primary/30 decoration-2 underline-offset-2 hover:decoration-primary/80 transition-all duration-300">Medicaid</Link>,{' '}
-                  <Link to="/services" className="font-semibold text-primary underline decoration-primary/30 decoration-2 underline-offset-2 hover:decoration-primary/80 transition-all duration-300">commercial</Link>{' '}
+                  <Link to="/services/medicare-credentialing" className="font-semibold text-primary underline decoration-primary/30 decoration-2 underline-offset-2 hover:decoration-primary/80 transition-all duration-300">Medicare</Link>,{' '}
+                  <Link to="/services/medicaid-credentialing" className="font-semibold text-primary underline decoration-primary/30 decoration-2 underline-offset-2 hover:decoration-primary/80 transition-all duration-300">Medicaid</Link>,{' '}
+                  <Link to="/services/commercial-credentialing" className="font-semibold text-primary underline decoration-primary/30 decoration-2 underline-offset-2 hover:decoration-primary/80 transition-all duration-300">commercial</Link>{' '}
                   carriers, and workman&#39;s compensation carriers.
                 </p>
               </div>

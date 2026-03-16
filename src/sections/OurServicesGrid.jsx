@@ -17,7 +17,7 @@ const serviceCards = [
         <path d="M26 14c1.5 1 2.5 2.5 2.5 4.5" strokeLinecap="round" opacity="0.6" />
       </svg>
     ),
-    link: '/services#individual',
+    link: '/services/individual-provider-credentialing',
   },
   {
     title: 'Group Credentialing',
@@ -31,7 +31,7 @@ const serviceCards = [
         <path d="M16 9V6" strokeLinecap="round" />
       </svg>
     ),
-    link: '/services#group',
+    link: '/services/group-credentialing',
   },
   {
     title: 'Individual & Group Affiliation',
@@ -44,7 +44,7 @@ const serviceCards = [
         <path d="M6 24c0-3.5 2.5-6 5-6 1.2 0 2.8.5 5 2 2.2-1.5 3.8-2 5-2 2.5 0 5 2.5 5 6" strokeLinecap="round" />
       </svg>
     ),
-    link: '/services#payor',
+    link: '/services/individual-group-affiliation',
   },
 ];
 

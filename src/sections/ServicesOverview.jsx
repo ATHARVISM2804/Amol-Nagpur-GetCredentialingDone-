@@ -192,7 +192,7 @@ export default function ServicesOverview() {
                       </motion.li>
                     ))}
                   </ul>
-                  <Button to="/services" variant="primary" size="sm" icon={<HiArrowRight className="w-4 h-4" />}>
+                  <Button to={service.link || "/services"} variant="primary" size="sm" icon={<HiArrowRight className="w-4 h-4" />}>
                     Learn More
                   </Button>
                 </div>
