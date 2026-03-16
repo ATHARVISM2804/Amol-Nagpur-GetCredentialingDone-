@@ -549,21 +549,38 @@ export const expertise = [
 export const testimonials = [
   {
     quote:
-      'Get Credentialing Done took the headache out of our enrollment process. We were able to start billing patients weeks earlier than expected.',
-    name: 'Dr. Sarah Mitchell',
-    role: 'Family Medicine, Texas',
+      'They had great response time. Always respond quickly to emails. I had a bad experience with another company, but Get... View full review',
+    name: 'Sheila L.',
+    role: '',
+    rating: 3
   },
   {
     quote:
-      'Their team is incredibly responsive and professional. They kept us in the loop every step of the way with their real-time tracking software.',
-    name: 'James Harrington',
-    role: 'Practice Manager, Florida',
+      'They have experts and responsive team who knows in and out of credentialing process. Best people to work with for all credentialing and billing related needs.',
+    name: 'Rutuja k.',
+    role: '',
+    rating: 3
   },
   {
     quote:
-      'We credentialed our entire group of 12 providers through them. The process was seamless and their pricing was exactly as quoted.',
-    name: 'Dr. Priya Patel',
-    role: 'Internal Medicine Group, California',
+      "Thank you, Ifeoma! We're thrilled to hear you appreciated our diligent and knowledgeable service. We look forward to continuing to meet your expectations at Get Credentialing Done LLC.",
+    name: 'Ifeoma A.',
+    role: '',
+    rating: 3
+  },
+  {
+    quote:
+      "Thank you so much for the positive review, Psychehope! We're glad to hear you found our team knowledgeable and responsive. Your support means a lot to us, and we're here whenever you need us.",
+    name: 'Psychehope LLC',
+    role: '',
+    rating: 3
+  },
+  {
+    quote:
+      'My growing private practice has been using Get Credentialing Done for several years now. They are professional, responsive and easy to work with. I cannot recommend them enough!',
+    name: 'Hillary W.',
+    role: '',
+    rating: 3
   },
 ];
 
