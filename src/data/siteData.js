@@ -687,7 +687,7 @@ export const pricingPlans = [
     name: 'Monthly Fee',
     description: 'Ongoing maintenance & tracking',
     price: '$200 per provider',
-    pertext: 'per pair',
+    pertext: 'per payer',
     features: [
       'Credentialing tracking',
       'Re-cred calendar management',
