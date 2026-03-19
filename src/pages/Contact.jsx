@@ -4,6 +4,7 @@ import PageHero from '../components/PageHero';
 import SectionWrapper from '../components/SectionWrapper';
 import AnimatedReveal from '../components/AnimatedReveal';
 import Button from '../components/Button';
+import SuccessModal from '../components/SuccessModal';
 import {
   HiOutlineEnvelope,
   HiOutlinePhone,
@@ -38,6 +39,7 @@ export default function Contact() {
     message: '',
   });
   const [result, setResult] = useState("");
+  const [showModal, setShowModal] = useState(false);
   const [hoveredInfo, setHoveredInfo] = useState(null);
   const [focusedInput, setFocusedInput] = useState(null);
 
@@ -60,6 +62,7 @@ export default function Contact() {
       const data = await response.json();
       if (data.success) {
         setResult("Form Submitted Successfully");
+        setShowModal(true);
         e.target.reset();
         setForm({ firstName: '', lastName: '', email: '', phone: '', message: '' });
       } else {
@@ -443,6 +446,8 @@ export default function Contact() {
           </motion.div>
         </AnimatedReveal>
       </SectionWrapper>
+
+      <SuccessModal isOpen={showModal} onClose={() => setShowModal(false)} />
     </>
   );
 }
