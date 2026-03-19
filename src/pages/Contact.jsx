@@ -37,6 +37,7 @@ export default function Contact() {
     phone: '',
     message: '',
   });
+  const [result, setResult] = useState("");
   const [hoveredInfo, setHoveredInfo] = useState(null);
   const [focusedInput, setFocusedInput] = useState(null);
 
@@ -44,10 +45,29 @@ export default function Contact() {
     setForm({ ...form, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    alert('Thank you! Your message has been received. We will be in touch shortly.');
-    setForm({ firstName: '', lastName: '', email: '', phone: '', message: '' });
+    setResult("Sending....");
+    const formData = new FormData(e.target);
+    formData.append("access_key", "ab9be39c-943c-40b2-a7d3-301f736d8c59");
+
+    try {
+      const response = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        body: formData
+      });
+
+      const data = await response.json();
+      if (data.success) {
+        setResult("Form Submitted Successfully");
+        e.target.reset();
+        setForm({ firstName: '', lastName: '', email: '', phone: '', message: '' });
+      } else {
+        setResult("Error: " + data.message);
+      }
+    } catch (error) {
+      setResult("An error occurred. Please try again later.");
+    }
   };
 
   const inputClass =
@@ -202,9 +222,22 @@ export default function Contact() {
                   </motion.div>
 
                   <motion.div whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}>
-                    <Button type="submit" variant="primary" size="lg">
-                      Send Message
-                    </Button>
+                    <div className="flex flex-col gap-4">
+                      <Button type="submit" variant="primary" size="lg">
+                        Send Message
+                      </Button>
+                      {result && (
+                        <motion.div
+                          initial={{ opacity: 0, y: 10 }}
+                          animate={{ opacity: 1, y: 0 }}
+                          className={`text-sm font-medium ${
+                            result.includes('Error') || result.includes('error') ? 'text-red-500' : 'text-primary'
+                          }`}
+                        >
+                          {result}
+                        </motion.div>
+                      )}
+                    </div>
                   </motion.div>
                 </form>
               </div>
