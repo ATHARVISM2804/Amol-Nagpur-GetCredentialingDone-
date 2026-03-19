@@ -8,10 +8,10 @@ export default function PricingCard({ plan, index }) {
   return (
     <AnimatedReveal animation="fadeUp" delay={index * 0.15}>
       <motion.div
-        whileHover={{ 
-          y: highlighted ? -16 : -8, 
+        whileHover={{
+          y: highlighted ? -16 : -8,
           scale: highlighted ? 1.05 : 1,
-          transition: { type: 'spring', stiffness: 300, damping: 20 } 
+          transition: { type: 'spring', stiffness: 300, damping: 20 }
         }}
         className={`group relative rounded-3xl h-full flex flex-col transition-all duration-500 cursor-pointer ${
           highlighted ? 'z-10' : ''
@@ -108,12 +108,13 @@ export default function PricingCard({ plan, index }) {
             )}
             <div className="mt-6">
               <Button
-                to="/contact"
+                href={plan.stripePaymentLink || undefined}
+                to={!plan.stripePaymentLink ? '/contact' : undefined}
                 variant={highlighted ? 'white' : 'primary'}
                 size="lg"
                 className="w-full"
               >
-                Buy Now
+                {plan.stripePaymentLink ? 'Buy Now' : 'Contact Us'}
               </Button>
             </div>
           </div>

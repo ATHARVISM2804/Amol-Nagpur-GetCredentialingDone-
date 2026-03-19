@@ -628,6 +628,7 @@ export const pricingPlans = [
     name: 'Basic Plan',
     description: 'Initial credentialing application submission (includes 3 providers)',
     price: '$300 per payer',
+    stripePaymentLink: 'https://buy.stripe.com/test_14AaEXgX3gr2cHab4W5Vu00',
     features: [
       'Initial credentialing application submission',
       'Follow up on application',
@@ -639,6 +640,7 @@ export const pricingPlans = [
     name: 'Professional Plan',
     description: 'Most Popular - Comprehensive support',
     price: '$450 per payer',
+    stripePaymentLink: 'https://buy.stripe.com/test_14AaEXgX3gr2cHab4W5Vu00',
     features: [
       'Everything in Basic',
       'Initial credentialing application submission (Includes 1 group, 5 providers)',
@@ -653,6 +655,7 @@ export const pricingPlans = [
     name: 'Premium Plan',
     description: 'Advanced credentialing with priority support',
     price: '$800 per payer',
+    stripePaymentLink: 'https://buy.stripe.com/test_14AaEXgX3gr2cHab4W5Vu00',
     features: [
       'Everything in Professional (up to 10 providers)',
       'Credentialing for multiple locations',
@@ -670,6 +673,7 @@ export const pricingPlans = [
     description: 'For Healthcare Groups',
     price: 'Custom pricing',
     pertext: 'based on the number of providers and insurances',
+    stripePaymentLink: null,
     features: [
       'Credentialing for healthcare groups or organizations with 10+ providers',
       'Bulk processing of initial and re-credentialing applications',
@@ -688,6 +692,7 @@ export const pricingPlans = [
     description: 'Ongoing maintenance & tracking',
     price: '$200 per provider',
     pertext: 'per payer',
+    stripePaymentLink: 'https://buy.stripe.com/test_14AaEXgX3gr2cHab4W5Vu00',
     features: [
       'Credentialing tracking',
       'Re-cred calendar management',
@@ -695,7 +700,7 @@ export const pricingPlans = [
       'New payer additions (3 payers included)',
     ],
     highlighted: false,
-  }
+  },
 ];
 
 export const addOnServices = [
