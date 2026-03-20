@@ -1,5 +1,6 @@
 import PageHero from '../components/PageHero';
 import AnimatedReveal from '../components/AnimatedReveal';
+import SEO from '../components/SEO';
 
 const tocItems = [
     { id: 'online-store-terms', label: 'Online Store Terms' },
@@ -54,6 +55,7 @@ function Bullet({ children, color = 'bg-primary' }) {
 export default function TermsOfService() {
     return (
         <div className="bg-gray-50 min-h-screen">
+            <SEO title="Terms of Service" description="Terms of Service and conditions for Get Credentialing Done LLC." />
             <PageHero
                 title="Terms and Conditions"
                 subtitle="Legal"

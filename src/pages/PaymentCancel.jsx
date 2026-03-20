@@ -4,10 +4,12 @@ import PageHero from '../components/PageHero';
 import SectionWrapper from '../components/SectionWrapper';
 import AnimatedReveal from '../components/AnimatedReveal';
 import Button from '../components/Button';
+import SEO from '../components/SEO';
 
 export default function PaymentCancel() {
   return (
     <>
+      <SEO title="Payment Cancelled" description="Your payment was cancelled. No charges were made." />
       <PageHero
         subtitle="Payment Cancelled"
         title="Payment Not Completed"

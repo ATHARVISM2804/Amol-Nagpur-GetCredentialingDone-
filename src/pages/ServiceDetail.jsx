@@ -12,6 +12,7 @@ import AnimatedReveal from '../components/AnimatedReveal';
 import Button from '../components/Button';
 import CTASection from '../sections/CTASection';
 import { servicePages, serviceDropdownLinks } from '../data/siteData';
+import SEO from '../components/SEO';
 
 const whyChooseGradients = [
   'from-primary to-primary-600',
@@ -62,6 +63,10 @@ export default function ServiceDetail() {
 
   return (
     <>
+      <SEO 
+        title={`${service.title} Services | Get Credentialing Done`} 
+        description={service.tagline || `Expert ${service.title} credentialing services.`}
+      />
       <PageHero
         badge="Our Services"
         title={service.title}

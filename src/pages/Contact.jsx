@@ -5,6 +5,7 @@ import SectionWrapper from '../components/SectionWrapper';
 import AnimatedReveal from '../components/AnimatedReveal';
 import Button from '../components/Button';
 import SuccessModal from '../components/SuccessModal';
+import SEO from '../components/SEO';
 import {
   HiOutlineEnvelope,
   HiOutlinePhone,
@@ -78,6 +79,10 @@ export default function Contact() {
 
   return (
     <>
+      <SEO 
+        title="Contact Us"
+        description="Get in touch with Get Credentialing Done for a free consultation on our insurance credentialing services."
+      />
       <PageHero
         subtitle="Contact Us"
         title="Let's Get Started"

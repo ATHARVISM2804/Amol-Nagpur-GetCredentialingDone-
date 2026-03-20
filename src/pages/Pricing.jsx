@@ -7,6 +7,7 @@ import CTASection from '../sections/CTASection';
 import { pricingPlans, addOnServices } from '../data/siteData';
 import AnimatedReveal from '../components/AnimatedReveal';
 import { HiChevronDown, HiOutlineQuestionMarkCircle } from 'react-icons/hi2';
+import SEO from '../components/SEO';
 
 export default function Pricing() {
   const [openFaq, setOpenFaq] = useState(null);
@@ -32,6 +33,10 @@ export default function Pricing() {
 
   return (
     <>
+      <SEO 
+        title="Pricing Plans"
+        description="Transparent and simple pricing packages for our healthcare credentialing and provider enrollment services."
+      />
       <PageHero
         subtitle="Pricing"
         title="Transparent, Simple Pricing"

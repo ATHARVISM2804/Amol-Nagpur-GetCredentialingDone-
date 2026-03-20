@@ -1,5 +1,6 @@
 import PageHero from '../components/PageHero';
 import AnimatedReveal from '../components/AnimatedReveal';
+import SEO from '../components/SEO';
 
 const tocItems = [
     { id: 'personal-info', label: 'Personal Information We Collect' },
@@ -35,6 +36,7 @@ function SectionCard({ id, number, title, children }) {
 export default function PrivacyPolicy() {
     return (
         <div className="bg-gray-50 min-h-screen">
+            <SEO title="Privacy Policy" description="Privacy Policy and data collection guidelines for Get Credentialing Done LLC." />
             <PageHero
                 title="Privacy Policy"
                 subtitle="Legal"

@@ -7,6 +7,7 @@ import SectionHeading from '../components/SectionHeading';
 import AnimatedReveal from '../components/AnimatedReveal';
 import CTASection from '../sections/CTASection';
 import { services } from '../data/siteData';
+import SEO from '../components/SEO';
 import {
   HiArrowRight,
   HiOutlineArrowPath,
@@ -199,6 +200,10 @@ export default function Services() {
 
   return (
     <>
+      <SEO 
+        title="Our Services" 
+        description="Comprehensive credentialing solutions for individual providers and groups, including Medicare, Medicaid, and commercial credentialing."
+      />
       <PageHero
         subtitle="Our Services"
         title="Comprehensive Credentialing Solutions"

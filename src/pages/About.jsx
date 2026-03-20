@@ -7,6 +7,7 @@ import SectionHeading from '../components/SectionHeading';
 import AnimatedReveal from '../components/AnimatedReveal';
 import Button from '../components/Button';
 import CTASection from '../sections/CTASection';
+import SEO from '../components/SEO';
 import {
   HiOutlineBolt,
   HiOutlineEye,
@@ -151,6 +152,10 @@ export default function About() {
 
   return (
     <>
+      <SEO 
+        title="About Us"
+        description="Learn more about Get Credentialing Done and how our expert credentialing services can simplify your healthcare practice operations."
+      />
       <PageHero
         subtitle="About Us"
         title="Simplify Your Practice with Our Credentialing Services"

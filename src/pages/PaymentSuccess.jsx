@@ -4,10 +4,12 @@ import PageHero from '../components/PageHero';
 import SectionWrapper from '../components/SectionWrapper';
 import AnimatedReveal from '../components/AnimatedReveal';
 import Button from '../components/Button';
+import SEO from '../components/SEO';
 
 export default function PaymentSuccess() {
   return (
     <>
+      <SEO title="Payment Successful" description="Your payment to Get Credentialing Done was successful. We look forward to working with you." />
       <PageHero
         subtitle="Payment Confirmed"
         title="Payment Successful!"
