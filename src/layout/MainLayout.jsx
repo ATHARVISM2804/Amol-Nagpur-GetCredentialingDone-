@@ -1,4 +1,4 @@
-import { Outlet, useLocation } from 'react-router-dom';
+import { Outlet, useLocation, useNavigationType } from 'react-router-dom';
 import { useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import Navbar from './Navbar';
@@ -11,19 +11,43 @@ const pageVariants = {
 };
 
 export default function MainLayout() {
-  const { pathname } = useLocation();
+  const location = useLocation();
+  const navType = useNavigationType();
 
   useEffect(() => {
-    window.scrollTo(0, 0);
-  }, [pathname]);
+    if ('scrollRestoration' in history) {
+      history.scrollRestoration = 'manual';
+    }
+  }, []);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      sessionStorage.setItem(`scroll-${location.key}`, window.scrollY.toString());
+    };
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, [location.key]);
+
+  const handleExitComplete = () => {
+    if (navType !== 'POP') {
+      window.scrollTo(0, 0);
+    } else {
+      const savedPos = sessionStorage.getItem(`scroll-${location.key}`);
+      if (savedPos !== null) {
+        setTimeout(() => {
+          window.scrollTo(0, parseInt(savedPos, 10));
+        }, 10);
+      }
+    }
+  };
 
   return (
     <div className="flex flex-col min-h-screen">
       <Navbar />
       <main className="flex-1">
-        <AnimatePresence mode="wait">
+        <AnimatePresence mode="wait" onExitComplete={handleExitComplete}>
           <motion.div   
-            key={pathname}
+            key={location.pathname}
             variants={pageVariants}
             initial="initial"
             animate="animate"
