@@ -531,16 +531,19 @@ export const whyChooseUs = [
 export const expertise = [
   {
     title: 'Medicare Credentialing',
+    path: '/services/medicare-credentialing',
     description:
       'Navigate the complex Medicare enrollment process with confidence. We handle PECOS enrollment, revalidation, and address changes efficiently.',
   },
   {
     title: 'Medicaid Credentialing',
+    path: '/services/medicaid-credentialing',
     description:
       "State-specific Medicaid enrollment managed by experts who understand the nuances of each state's requirements and timelines.",
   },
   {
     title: 'Commercial Credentialing',
+    path: '/services/commercial-credentialing',
     description:
       'Get enrolled with major commercial payors like Aetna, Cigna, UnitedHealthcare, Blue Cross Blue Shield, and more.',
   },

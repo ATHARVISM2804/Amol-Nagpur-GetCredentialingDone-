@@ -95,16 +95,6 @@ export default function WhyChooseUs() {
                       {item.description}
                     </p>
 
-                    {/* Animated arrow indicator */}
-                    <motion.div
-                      initial={{ opacity: 0, x: -10 }}
-                      animate={isActive ? { opacity: 1, x: 0 } : { opacity: 0, x: -10 }}
-                      transition={{ duration: 0.3 }}
-                      className="mt-4 flex items-center gap-1.5 text-primary text-sm font-semibold"
-                    >
-                      Learn more
-                      <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" /></svg>
-                    </motion.div>
                   </div>
                 </div>
               </motion.div>

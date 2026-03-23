@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import { Link } from 'react-router-dom';
 import SectionWrapper from '../components/SectionWrapper';
 import SectionHeading from '../components/SectionHeading';
 import AnimatedReveal from '../components/AnimatedReveal';
@@ -47,12 +48,13 @@ export default function ExpertiseSection() {
 
           return (
             <AnimatedReveal key={i} animation="fadeUp" delay={i * 0.12}>
-              <motion.div
-                whileHover={{ y: -8, transition: { duration: 0.3, type: 'spring', stiffness: 300 } }}
-                onMouseEnter={() => setActiveCard(i)}
-                onMouseLeave={() => setActiveCard(null)}
-                className="group relative h-full cursor-pointer"
-              >
+              <Link to={item.path} className="block h-full">
+                <motion.div
+                  whileHover={{ y: -8, transition: { duration: 0.3, type: 'spring', stiffness: 300 } }}
+                  onMouseEnter={() => setActiveCard(i)}
+                  onMouseLeave={() => setActiveCard(null)}
+                  className="group relative h-full cursor-pointer"
+                >
                 {/* Gradient border effect */}
                 <motion.div
                   className={`absolute -inset-[1px] rounded-2xl bg-gradient-to-br ${color.gradient} opacity-0 group-hover:opacity-100 transition-opacity duration-500`}
@@ -118,6 +120,7 @@ export default function ExpertiseSection() {
                   </div>
                 </div>
               </motion.div>
+             </Link>
             </AnimatedReveal>
           );
         })}

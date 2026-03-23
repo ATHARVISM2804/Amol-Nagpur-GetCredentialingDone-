@@ -1,6 +1,7 @@
-import { motion } from 'framer-motion';
+import { useState, useEffect } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
 import AnimatedReveal from './AnimatedReveal';
-import { HiOutlineClock, HiArrowUpRight } from 'react-icons/hi2';
+import { HiOutlineClock, HiArrowUpRight, HiXMark } from 'react-icons/hi2';
 
 const categoryColors = {
   Credentialing: 'bg-primary text-white',
@@ -9,10 +10,37 @@ const categoryColors = {
 };
 
 export default function BlogCard({ post, index }) {
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  // Lock body scroll when modal is open
+  useEffect(() => {
+    if (isModalOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = '';
+    }
+    return () => {
+      document.body.style.overflow = '';
+    };
+  }, [isModalOpen]);
+
+  // Close on Escape key
+  useEffect(() => {
+    const handleEsc = (e) => {
+      if (e.key === 'Escape') setIsModalOpen(false);
+    };
+    if (isModalOpen) {
+      window.addEventListener('keydown', handleEsc);
+    }
+    return () => window.removeEventListener('keydown', handleEsc);
+  }, [isModalOpen]);
+
   return (
-    <AnimatedReveal animation="fadeUp" delay={index * 0.12}>
-      <motion.article
-        className="group cursor-pointer h-full"
+    <>
+      <AnimatedReveal animation="fadeUp" delay={index * 0.12}>
+        <motion.article
+          onClick={() => setIsModalOpen(true)}
+          className="group cursor-pointer h-full"
         whileHover={{ y: -8 }}
         transition={{ duration: 0.3, type: 'spring', stiffness: 300 }}
       >
@@ -86,8 +114,72 @@ export default function BlogCard({ post, index }) {
             </motion.div>
           </div>
           </div>
-        </div>
-      </motion.article>
-    </AnimatedReveal>
+          </div>
+        </motion.article>
+      </AnimatedReveal>
+
+      {/* Blog Detail Modal */}
+      <AnimatePresence>
+        {isModalOpen && (
+          <div className="fixed inset-0 z-[100] flex items-center justify-center p-4 sm:p-6 backdrop-blur-sm bg-gray-900/60" onClick={() => setIsModalOpen(false)}>
+            <motion.div
+              initial={{ opacity: 0, scale: 0.95, y: 20 }}
+              animate={{ opacity: 1, scale: 1, y: 0 }}
+              exit={{ opacity: 0, scale: 0.95, y: 20 }}
+              onClick={(e) => e.stopPropagation()}
+              className="relative w-full max-w-3xl bg-white rounded-2xl shadow-2xl overflow-hidden flex flex-col max-h-[90vh]"
+            >
+              <button
+                onClick={() => setIsModalOpen(false)}
+                className="absolute top-4 right-4 z-10 w-11 h-11 bg-white hover:bg-gray-100 rounded-full flex items-center justify-center text-gray-700 hover:text-gray-900 transition-all duration-200 shadow-lg border border-gray-200"
+                aria-label="Close modal"
+              >
+                <HiXMark className="w-6 h-6" />
+              </button>
+              
+              <div className="relative w-full h-64 sm:h-80 shrink-0">
+                <img src={post.image} alt={post.title} className="w-full h-full object-cover" />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
+                <div className="absolute bottom-6 left-6 right-6">
+                  <span className={`inline-block mb-3 text-xs font-bold px-3 py-1 rounded-full shadow-lg ${categoryColors[post.category] || 'bg-primary text-white'}`}>
+                    {post.category}
+                  </span>
+                  <h2 className="text-2xl sm:text-3xl font-heading font-bold text-white leading-tight">
+                    {post.title}
+                  </h2>
+                </div>
+              </div>
+
+              <div className="p-6 sm:p-8 overflow-y-auto">
+                <div className="flex items-center gap-4 text-sm text-gray-500 mb-6 font-medium">
+                  <span>{post.date}</span>
+                  <span className="w-1.5 h-1.5 bg-gray-300 rounded-full" />
+                  <span>{post.author}</span>
+                  <span className="w-1.5 h-1.5 bg-gray-300 rounded-full" />
+                  <span>5 min read</span>
+                </div>
+                
+                <div className="prose prose-gray max-w-none">
+                  <p className="text-xl text-gray-800 leading-relaxed font-medium mb-6">
+                    {post.excerpt}
+                  </p>
+                  <div className="space-y-4 text-gray-600 leading-relaxed">
+                    <p>
+                      Navigating the complexities of healthcare management requires a solid understanding of both the administrative and clinical sides. In this complete guide, we dive deep into the best strategies for ensuring your practice remains compliant, efficient, and highly profitable.
+                    </p>
+                    <p>
+                      One of the most important aspects is staying updated on changing regulations. Whether you are dealing with Medicare, Medicaid, or commercial insurers, maintaining accurate documentation and timely submissions is key to avoiding denials and keeping your revenue cycle healthy. 
+                    </p>
+                    <p>
+                      Partnering with a dedicated credentialing and billing expert can make all the difference. It frees up your team to focus exclusively on patient care while the complex administrative hurdles are managed by professionals who know the system inside and out.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </motion.div>
+          </div>
+        )}
+      </AnimatePresence>
+    </>
   );
 }
