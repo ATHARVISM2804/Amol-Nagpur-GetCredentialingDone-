@@ -32,34 +32,14 @@ export default function CTASection() {
         <div className="absolute inset-0 bg-gradient-to-r from-accent/8 via-transparent to-accent/5" />
         <div className="absolute inset-0 bg-dot-pattern bg-dot opacity-5" />
 
-        {/* Animated geometric shapes */}
-        <motion.div
-          animate={{ y: [0, -30, 0], x: [0, 20, 0], rotate: [0, 45, 0] }}
-          transition={{ duration: 12, repeat: Infinity, ease: 'easeInOut' }}
-          className="absolute top-[15%] left-[5%] w-20 h-20 border-2 border-white/10 rounded-2xl blur-[1px]"
-        />
-        <motion.div
-          animate={{ y: [0, 25, 0], x: [0, -15, 0], rotate: [0, -30, 0] }}
-          transition={{ duration: 15, repeat: Infinity, ease: 'easeInOut' }}
-          className="absolute bottom-[20%] right-[8%] w-16 h-16 border-2 border-accent/15 rounded-full blur-[1px]"
-        />
-        <motion.div
-          animate={{ y: [0, -20, 0], rotate: [0, 90, 0] }}
-          transition={{ duration: 20, repeat: Infinity, ease: 'easeInOut' }}
-          className="absolute top-[40%] right-[20%] w-12 h-12 border border-white/8 rounded-lg"
-        />
+        {/* Animated geometric shapes — CSS only */}
+        <div className="absolute top-[15%] left-[5%] w-20 h-20 border-2 border-white/10 rounded-2xl blur-[1px] animate-float-slow" style={{willChange:'transform'}} />
+        <div className="absolute bottom-[20%] right-[8%] w-16 h-16 border-2 border-accent/15 rounded-full blur-[1px] animate-float-slower" style={{willChange:'transform'}} />
+        <div className="absolute top-[40%] right-[20%] w-12 h-12 border border-white/8 rounded-lg animate-spin-slow" style={{willChange:'transform'}} />
 
-        {/* Large floating orbs */}
-        <motion.div
-          animate={{ y: [0, -25, 0], x: [0, 15, 0] }}
-          transition={{ duration: 10, repeat: Infinity, ease: 'easeInOut' }}
-          className="absolute top-10 left-[10%] w-56 h-56 bg-white/5 rounded-full blur-3xl"
-        />
-        <motion.div
-          animate={{ y: [0, 20, 0], x: [0, -12, 0] }}
-          transition={{ duration: 12, repeat: Infinity, ease: 'easeInOut' }}
-          className="absolute bottom-10 right-[15%] w-64 h-64 bg-accent/8 rounded-full blur-3xl"
-        />
+        {/* Large floating orbs — CSS only */}
+        <div className="absolute top-10 left-[10%] w-56 h-56 bg-white/5 rounded-full blur-3xl animate-float-slow" style={{willChange:'transform'}} />
+        <div className="absolute bottom-10 right-[15%] w-64 h-64 bg-accent/8 rounded-full blur-3xl animate-float-slower" style={{willChange:'transform'}} />
 
         <div className="container-custom text-center relative z-10">
           <AnimatedReveal>

@@ -25,9 +25,9 @@
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@500;600;700;800&display=swap" />
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@500;600;700;800&display=swap" rel="stylesheet" media="print" onload="this.media='all'" />
-    <noscript><link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@500;600;700;800&display=swap" rel="stylesheet" /></noscript>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@500;600;700;800&display=swap" rel="stylesheet" />
+    <!-- Preload LCP hero image -->
+    <link rel="preload" as="image" href="https://images.unsplash.com/photo-1576091160550-2173dba999ef?w=800&q=75&fm=webp" fetchpriority="high" />
     <title>Get Credentialing Done | Healthcare Credentialing Services</title>
 
     <!-- Schema.org JSON-LD structured data for MedicalOrganization -->
@@ -55,8 +55,11 @@
   <body class="font-body text-gray-800 bg-white antialiased">
     <div id="root"></div>
     <script type="module" src="/src/main.jsx"></script>
-    <!-- Zoho SalesIQ Chatbot Widget -->
-    <script>window.$zoho=window.$zoho || {};$zoho.salesiq=$zoho.salesiq||{ready:function(){}}</script>
-    <script id="zsiqscript" src="https://salesiq.zohopublic.in/widget?wc=siq232db4fb71e1178c45fc7e9a7b8cf10d9b4f66e99c947aa9c3f59dd40a4f344a" defer></script>
+    <!-- Zoho SalesIQ Chatbot Widget — loaded after page is idle -->
+    <script>
+      window.$zoho=window.$zoho || {};$zoho.salesiq=$zoho.salesiq||{ready:function(){}};
+      function loadZoho(){var s=document.createElement('script');s.id='zsiqscript';s.src='https://salesiq.zohopublic.in/widget?wc=siq232db4fb71e1178c45fc7e9a7b8cf10d9b4f66e99c947aa9c3f59dd40a4f344a';s.defer=true;document.body.appendChild(s);}
+      if('requestIdleCallback' in window){requestIdleCallback(loadZoho)}else{window.addEventListener('load',loadZoho)}
+    </script>
   </body>
 </html>

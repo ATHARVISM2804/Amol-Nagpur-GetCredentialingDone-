@@ -5,19 +5,19 @@ import { HiArrowRight, HiChevronLeft, HiChevronRight } from 'react-icons/hi2';
 
 const slides = [
   {
-    url: 'https://images.unsplash.com/photo-1576091160550-2173dba999ef?w=1400&q=80',
+    url: 'https://images.unsplash.com/photo-1576091160550-2173dba999ef?w=800&q=75&fm=webp',
     alt: 'Healthcare professional with stethoscope',
   },
   {
-    url: 'https://images.unsplash.com/photo-1631217868264-e5b90bb7e133?w=1400&q=80',
+    url: 'https://images.unsplash.com/photo-1631217868264-e5b90bb7e133?w=800&q=75&fm=webp',
     alt: 'Medical team collaboration',
   },
   {
-    url: 'https://images.unsplash.com/photo-1551434678-e076c223a692?w=1400&q=80',
+    url: 'https://images.unsplash.com/photo-1551434678-e076c223a692?w=800&q=75&fm=webp',
     alt: 'Professional office workspace',
   },
   {
-    url: 'https://images.unsplash.com/photo-1581056771107-24ca5f033842?w=1400&q=80',
+    url: 'https://images.unsplash.com/photo-1581056771107-24ca5f033842?w=800&q=75&fm=webp',
     alt: 'Healthcare provider reviewing documents',
   },
 ];
@@ -81,9 +81,10 @@ export default function HeroSection() {
             <img
               src={slides[current].url}
               alt={slides[current].alt}
-              width={1400}
-              height={933}
+              width={800}
+              height={533}
               className="w-full h-full object-cover"
+              fetchpriority={current === 0 ? 'high' : undefined}
               loading={current === 0 ? 'eager' : 'lazy'}
             />
           </motion.div>
@@ -97,17 +98,9 @@ export default function HeroSection() {
         {/* Dot pattern */}
         <div className="absolute inset-0 bg-dot-pattern bg-dot opacity-15" />
 
-        {/* Animated accent lines */}
-        <motion.div
-          animate={{ x: ['-100%', '100%'] }}
-          transition={{ duration: 15, repeat: Infinity, ease: 'linear' }}
-          className="absolute top-1/4 left-0 w-[400px] h-px bg-gradient-to-r from-transparent via-accent/30 to-transparent"
-        />
-        <motion.div
-          animate={{ x: ['100%', '-100%'] }}
-          transition={{ duration: 18, repeat: Infinity, ease: 'linear' }}
-          className="absolute bottom-1/3 right-0 w-[500px] h-px bg-gradient-to-r from-transparent via-primary-300/20 to-transparent"
-        />
+        {/* Animated accent lines — CSS only for zero main-thread cost */}
+        <div className="absolute top-1/4 left-0 w-[400px] h-px bg-gradient-to-r from-transparent via-accent/30 to-transparent animate-sweep-right" style={{willChange:'transform'}} />
+        <div className="absolute bottom-1/3 right-0 w-[500px] h-px bg-gradient-to-r from-transparent via-primary-300/20 to-transparent animate-sweep-left" style={{willChange:'transform'}} />
       </div>
 
       {/* ===== SLIDE NAVIGATION ===== */}
@@ -143,16 +136,14 @@ export default function HeroSection() {
         ))}
       </div>
 
-      {/* ===== FLOATING ORBS ===== */}
-      <motion.div
-        animate={{ y: [-15, 15, -15], x: [-5, 5, -5] }}
-        transition={{ duration: 8, repeat: Infinity, ease: 'easeInOut' }}
-        className="absolute top-20 left-[8%] w-60 h-60 bg-primary/15 rounded-full blur-[100px]"
+      {/* ===== FLOATING ORBS — CSS only ===== */}
+      <div
+        className="absolute top-20 left-[8%] w-60 h-60 bg-primary/15 rounded-full blur-[100px] animate-float-slow"
+        style={{willChange:'transform'}}
       />
-      <motion.div
-        animate={{ y: [20, -20, 20] }}
-        transition={{ duration: 10, repeat: Infinity, ease: 'easeInOut' }}
-        className="absolute bottom-16 right-[5%] w-72 h-72 bg-accent/10 rounded-full blur-[100px]"
+      <div
+        className="absolute bottom-16 right-[5%] w-72 h-72 bg-accent/10 rounded-full blur-[100px] animate-float-slower"
+        style={{willChange:'transform'}}
       />
 
       {/* ===== CONTENT ===== */}

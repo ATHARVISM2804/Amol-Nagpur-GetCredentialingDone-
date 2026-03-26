@@ -10,16 +10,14 @@ import { HiArrowRight } from 'react-icons/hi2';
 export default function BlogPreview() {
   return (
     <SectionWrapper bg="bg-gradient-to-b from-white via-blue-50/30 to-primary-50/20" className="overflow-hidden">
-      {/* Animated glows */}
-      <motion.div
-        animate={{ scale: [1, 1.2, 1], opacity: [0.3, 0.6, 0.3] }}
-        transition={{ duration: 10, repeat: Infinity, ease: 'easeInOut' }}
-        className="absolute -top-20 right-0 w-[400px] h-[400px] bg-gradient-radial from-accent/5 to-transparent rounded-full blur-3xl"
+      {/* Animated glows — CSS only */}
+      <div
+        className="absolute -top-20 right-0 w-[400px] h-[400px] bg-gradient-radial from-accent/5 to-transparent rounded-full blur-3xl animate-pulse-soft"
+        style={{willChange:'opacity'}}
       />
-      <motion.div
-        animate={{ scale: [1, 1.15, 1], opacity: [0.2, 0.4, 0.2] }}
-        transition={{ duration: 12, repeat: Infinity, ease: 'easeInOut', delay: 3 }}
-        className="absolute bottom-0 left-[10%] w-[300px] h-[300px] bg-gradient-radial from-primary/5 to-transparent rounded-full blur-3xl"
+      <div
+        className="absolute bottom-0 left-[10%] w-[300px] h-[300px] bg-gradient-radial from-primary/5 to-transparent rounded-full blur-3xl animate-pulse-soft"
+        style={{animationDelay:'3s',willChange:'opacity'}}
       />
 
       {/* Morphing decorative shape */}

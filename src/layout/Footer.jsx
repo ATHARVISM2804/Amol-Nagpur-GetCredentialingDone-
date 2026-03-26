@@ -53,15 +53,13 @@ export default function Footer() {
 
       {/* Decorative background elements */}
       <div className="absolute inset-0 bg-dot-pattern bg-dot opacity-[0.03]" />
-      <motion.div
-        animate={{ x: [0, 30, 0], y: [0, -20, 0] }}
-        transition={{ duration: 20, repeat: Infinity, ease: 'easeInOut' }}
-        className="absolute top-20 right-[10%] w-[400px] h-[400px] bg-gradient-to-br from-primary/[0.04] to-transparent rounded-full blur-3xl"
+      <div
+        className="absolute top-20 right-[10%] w-[400px] h-[400px] bg-gradient-to-br from-primary/[0.04] to-transparent rounded-full blur-3xl animate-float-slow"
+        style={{willChange:'transform'}}
       />
-      <motion.div
-        animate={{ x: [0, -20, 0], y: [0, 15, 0] }}
-        transition={{ duration: 25, repeat: Infinity, ease: 'easeInOut' }}
-        className="absolute bottom-20 left-[5%] w-[350px] h-[350px] bg-gradient-to-tr from-accent/[0.03] to-transparent rounded-full blur-3xl"
+      <div
+        className="absolute bottom-20 left-[5%] w-[350px] h-[350px] bg-gradient-to-tr from-accent/[0.03] to-transparent rounded-full blur-3xl animate-float-slower"
+        style={{willChange:'transform'}}
       />
 
       {/* Newsletter / CTA strip */}

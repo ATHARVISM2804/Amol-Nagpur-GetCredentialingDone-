@@ -11,49 +11,30 @@ export default function PageHero({ subtitle, title, description }) {
       {/* Mesh overlay for depth */}
       <div className="absolute inset-0 bg-mesh-dark" />
 
-      {/* Animated floating orbs */}
-      <motion.div
-        animate={{ y: [-15, 15, -15], x: [0, 10, 0] }}
-        transition={{ duration: 8, repeat: Infinity, ease: 'easeInOut' }}
-        className="absolute top-16 right-[10%] w-72 h-72 bg-gradient-to-br from-white/5 to-transparent rounded-full blur-3xl"
+      {/* Animated floating orbs — CSS only */}
+      <div
+        className="absolute top-16 right-[10%] w-72 h-72 bg-gradient-to-br from-white/5 to-transparent rounded-full blur-3xl animate-float-slow"
+        style={{willChange:'transform'}}
       />
-      <motion.div
-        animate={{ y: [10, -20, 10], x: [0, -10, 0] }}
-        transition={{ duration: 10, repeat: Infinity, ease: 'easeInOut' }}
-        className="absolute bottom-0 left-[5%] w-80 h-80 bg-gradient-to-tr from-accent/10 to-transparent rounded-full blur-3xl"
+      <div
+        className="absolute bottom-0 left-[5%] w-80 h-80 bg-gradient-to-tr from-accent/10 to-transparent rounded-full blur-3xl animate-float-slower"
+        style={{willChange:'transform'}}
       />
-      <motion.div
-        animate={{ x: [-10, 10, -10], scale: [1, 1.1, 1] }}
-        transition={{ duration: 12, repeat: Infinity, ease: 'easeInOut' }}
-        className="absolute top-1/3 left-1/3 w-64 h-64 bg-primary-400/5 rounded-full blur-[100px]"
+      <div
+        className="absolute top-1/3 left-1/3 w-64 h-64 bg-primary-400/5 rounded-full blur-[100px] animate-float"
+        style={{willChange:'transform'}}
       />
 
       {/* Dot pattern overlay */}
       <div className="absolute inset-0 bg-dot-pattern bg-dot opacity-10" />
 
-      {/* Animated accent sweep lines */}
-      <motion.div
-        animate={{ x: ['-100%', '200%'] }}
-        transition={{ duration: 8, repeat: Infinity, ease: 'linear', repeatDelay: 4 }}
-        className="absolute top-1/4 left-0 w-[300px] h-px bg-gradient-to-r from-transparent via-accent/30 to-transparent"
-      />
-      <motion.div
-        animate={{ x: ['200%', '-100%'] }}
-        transition={{ duration: 10, repeat: Infinity, ease: 'linear', repeatDelay: 3 }}
-        className="absolute bottom-1/3 right-0 w-[400px] h-px bg-gradient-to-r from-transparent via-primary-300/20 to-transparent"
-      />
+      {/* Animated accent sweep lines — CSS only */}
+      <div className="absolute top-1/4 left-0 w-[300px] h-px bg-gradient-to-r from-transparent via-accent/30 to-transparent animate-sweep-right" style={{willChange:'transform'}} />
+      <div className="absolute bottom-1/3 right-0 w-[400px] h-px bg-gradient-to-r from-transparent via-primary-300/20 to-transparent animate-sweep-left" style={{willChange:'transform'}} />
 
-      {/* Geometric shapes */}
-      <motion.div
-        animate={{ rotate: [0, 360] }}
-        transition={{ duration: 40, repeat: Infinity, ease: 'linear' }}
-        className="absolute top-20 left-[15%] w-16 h-16 border border-white/[0.06] rounded-xl"
-      />
-      <motion.div
-        animate={{ rotate: [360, 0] }}
-        transition={{ duration: 30, repeat: Infinity, ease: 'linear' }}
-        className="absolute bottom-16 right-[20%] w-12 h-12 border border-accent/10 rounded-full"
-      />
+      {/* Geometric shapes — CSS only */}
+      <div className="absolute top-20 left-[15%] w-16 h-16 border border-white/[0.06] rounded-xl animate-spin-slow" style={{willChange:'transform'}} />
+      <div className="absolute bottom-16 right-[20%] w-12 h-12 border border-accent/10 rounded-full animate-spin-slow" style={{animationDirection:'reverse',willChange:'transform'}} />
 
       <div className="container-custom relative z-10 text-center max-w-3xl mx-auto">
         <AnimatedReveal>

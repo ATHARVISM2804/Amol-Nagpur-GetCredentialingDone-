@@ -57,6 +57,7 @@ export default {
       animation: {
         'float': 'float 6s ease-in-out infinite',
         'float-slow': 'float 8s ease-in-out infinite',
+        'float-slower': 'float 10s ease-in-out infinite',
         'float-delayed': 'float 6s ease-in-out 2s infinite',
         'pulse-soft': 'pulse-soft 4s ease-in-out infinite',
         'shimmer': 'shimmer 2s linear infinite',
@@ -66,6 +67,8 @@ export default {
         'slide-up': 'slide-up 0.6s ease-out',
         'shine': 'shine 1.5s ease-in-out',
         'morph': 'morph 8s ease-in-out infinite',
+        'sweep-right': 'sweep-right 15s linear infinite',
+        'sweep-left': 'sweep-left 18s linear infinite',
       },
       keyframes: {
         float: {
@@ -99,6 +102,14 @@ export default {
         morph: {
           '0%, 100%': { borderRadius: '60% 40% 30% 70% / 60% 30% 70% 40%' },
           '50%': { borderRadius: '30% 60% 70% 40% / 50% 60% 30% 60%' },
+        },
+        'sweep-right': {
+          '0%': { transform: 'translateX(-100%)' },
+          '100%': { transform: 'translateX(100%)' },
+        },
+        'sweep-left': {
+          '0%': { transform: 'translateX(100%)' },
+          '100%': { transform: 'translateX(-100%)' },
         },
       },
     },
