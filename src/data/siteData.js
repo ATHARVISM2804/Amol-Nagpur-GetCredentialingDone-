@@ -631,7 +631,7 @@ export const pricingPlans = [
     name: 'Basic Plan',
     description: 'Initial credentialing application submission (includes 3 providers)',
     price: '$300 per payer',
-    stripePaymentLink: 'https://buy.stripe.com/test_14AaEXgX3gr2cHab4W5Vu00',
+    stripePaymentLink: 'https://buy.stripe.com/00w6oH4Qed6T1e74cL48000',
     features: [
       'Initial credentialing application submission',
       'Follow up on application',
@@ -643,7 +643,7 @@ export const pricingPlans = [
     name: 'Professional Plan',
     description: 'Most Popular - Comprehensive support',
     price: '$450 per payer',
-    stripePaymentLink: 'https://buy.stripe.com/test_14AaEXgX3gr2cHab4W5Vu00',
+    stripePaymentLink: 'https://buy.stripe.com/dRmdR9eqO9UH5unfVt48001',
     features: [
       'Everything in Basic',
       'Initial credentialing application submission (Includes 1 group, 5 providers)',
@@ -658,7 +658,7 @@ export const pricingPlans = [
     name: 'Premium Plan',
     description: 'Advanced credentialing with priority support',
     price: '$800 per payer',
-    stripePaymentLink: 'https://buy.stripe.com/test_14AaEXgX3gr2cHab4W5Vu00',
+    stripePaymentLink: 'https://buy.stripe.com/4gM3cv6YmeaXf4X8t148002',
     features: [
       'Everything in Professional (up to 10 providers)',
       'Credentialing for multiple locations',
@@ -695,7 +695,7 @@ export const pricingPlans = [
     description: 'Ongoing maintenance & tracking',
     price: '$200 per provider',
     pertext: 'per payer',
-    stripePaymentLink: 'https://buy.stripe.com/test_14AaEXgX3gr2cHab4W5Vu00',
+    stripePaymentLink: 'https://buy.stripe.com/14A5kDdmK3wj2ib10z48003',
     features: [
       'Credentialing tracking',
       'Re-cred calendar management',
