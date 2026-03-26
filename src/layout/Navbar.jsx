@@ -67,6 +67,8 @@ export default function Navbar() {
               <img
                 src="https://res.cloudinary.com/dmhabztbf/image/upload/v1772874370/logo-transparent_jzzdlr.png"
                 alt="Get Credentialing Done"
+                width={200}
+                height={80}
                 className="h-12 md:h-16 xl:h-20 w-auto object-contain"
               />
             </motion.div>
@@ -86,6 +88,7 @@ export default function Navbar() {
                     onMouseLeave={() => setServicesOpen(false)}
                   >
                     <button
+                      aria-label="Services menu"
                       className={`relative flex items-center gap-1 text-[13px] font-semibold px-5 py-2 rounded-xl transition-all duration-300 ${
                         location.pathname.startsWith('/services')
                           ? 'text-white'

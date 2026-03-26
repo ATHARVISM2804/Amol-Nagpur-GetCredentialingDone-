@@ -28,8 +28,8 @@ const stagger = {
 };
 
 const fadeUp = {
-  hidden: { opacity: 0, y: 40, filter: 'blur(6px)' },
-  visible: { opacity: 1, y: 0, filter: 'blur(0px)', transition: { duration: 0.7, ease: [0.25, 0.1, 0.25, 1] } },
+  hidden: { opacity: 0, y: 40 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.7, ease: [0.25, 0.1, 0.25, 1] } },
 };
 
 export default function HeroSection() {
@@ -81,7 +81,10 @@ export default function HeroSection() {
             <img
               src={slides[current].url}
               alt={slides[current].alt}
+              width={1400}
+              height={933}
               className="w-full h-full object-cover"
+              loading={current === 0 ? 'eager' : 'lazy'}
             />
           </motion.div>
         </AnimatePresence>
@@ -223,8 +226,8 @@ export default function HeroSection() {
 
           {/* Right — Floating cards over transparent area */}
           <motion.div
-            initial={{ opacity: 0, x: 50, filter: 'blur(8px)' }}
-            animate={{ opacity: 1, x: 0, filter: 'blur(0)' }}
+            initial={{ opacity: 0, x: 50 }}
+            animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.9, delay: 0.3, ease: [0.25, 0.1, 0.25, 1] }}
             className="relative hidden lg:block"
           >
@@ -244,6 +247,9 @@ export default function HeroSection() {
                   transition={{ duration: 0.9, ease: [0.32, 0.72, 0, 1] }}
                   src={slides[current].url}
                   alt={slides[current].alt}
+                  width={1400}
+                  height={933}
+                  loading="lazy"
                   className="absolute inset-0 w-full h-full object-cover opacity-30 rounded-3xl"
                 />
               </AnimatePresence>

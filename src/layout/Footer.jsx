@@ -88,15 +88,14 @@ export default function Footer() {
               </p>
             </div>
             <div className="flex justify-center w-full mt-2">
-              <Link to="/contact">
-                <motion.button
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
-                  className="px-10 py-3.5 bg-gradient-to-r from-accent to-accent-600 text-white font-semibold text-base rounded-xl shadow-lg shadow-accent/25 hover:shadow-xl hover:shadow-accent/30 transition-all duration-300 whitespace-nowrap btn-shine"
+              <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
+                <Link
+                  to="/contact"
+                  className="inline-block px-10 py-3.5 bg-gradient-to-r from-accent to-accent-600 text-white font-semibold text-base rounded-xl shadow-lg shadow-accent/25 hover:shadow-xl hover:shadow-accent/30 transition-all duration-300 whitespace-nowrap btn-shine"
                 >
                   Subscribe
-                </motion.button>
-              </Link>
+                </Link>
+              </motion.div>
             </div>
           </div>
         </motion.div>
@@ -114,6 +113,8 @@ export default function Footer() {
                 <img
                   src="https://res.cloudinary.com/dmhabztbf/image/upload/v1772874370/logo-transparent_jzzdlr.png"
                   alt="Get Credentialing Done"
+                  width={200}
+                  height={80}
                   className="h-20 w-auto object-contain"
                 />
               </motion.div>
@@ -133,7 +134,7 @@ export default function Footer() {
                   rel="noopener noreferrer"
                   whileHover={{ scale: 1.15, y: -2 }}
                   whileTap={{ scale: 0.95 }}
-                  className="w-10 h-10 rounded-xl bg-white/[0.06] backdrop-blur-sm border border-white/[0.08] flex items-center justify-center text-gray-400 hover:text-white hover:bg-white/[0.12] hover:border-white/20 transition-all duration-300"
+                  className="w-11 h-11 rounded-xl bg-white/[0.06] backdrop-blur-sm border border-white/[0.08] flex items-center justify-center text-gray-400 hover:text-white hover:bg-white/[0.12] hover:border-white/20 transition-all duration-300"
                   aria-label={social.label}
                 >
                   {social.icon}

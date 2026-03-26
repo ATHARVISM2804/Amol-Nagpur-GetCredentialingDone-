@@ -7,4 +7,16 @@ export default defineConfig({
     port: 3000,
     open: true,
   },
+  build: {
+    cssCodeSplit: true,
+    rollupOptions: {
+      output: {
+        manualChunks: {
+          'react-vendor': ['react', 'react-dom', 'react-router-dom'],
+          'motion': ['framer-motion'],
+          'icons': ['react-icons'],
+        },
+      },
+    },
+  },
 });

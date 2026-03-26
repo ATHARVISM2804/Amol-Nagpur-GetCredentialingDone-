@@ -53,6 +53,8 @@ export default function BlogCard({ post, index }) {
             <img
               src={post.image}
               alt={post.title}
+              width={640}
+              height={400}
               className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
               loading="lazy"
             />
@@ -138,7 +140,7 @@ export default function BlogCard({ post, index }) {
               </button>
               
               <div className="relative w-full h-64 sm:h-80 shrink-0">
-                <img src={post.image} alt={post.title} className="w-full h-full object-cover" />
+                <img src={post.image} alt={post.title} width={800} height={320} className="w-full h-full object-cover" loading="lazy" />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
                 <div className="absolute bottom-6 left-6 right-6">
                   <span className={`inline-block mb-3 text-xs font-bold px-3 py-1 rounded-full shadow-lg ${categoryColors[post.category] || 'bg-primary text-white'}`}>

@@ -42,9 +42,9 @@ export default function TestimonialSlider({ testimonials }) {
   }, [next, current]);
 
   const slideVariants = {
-    enter: (dir) => ({ x: dir > 0 ? 60 : -60, opacity: 0, filter: 'blur(6px)' }),
-    center: { x: 0, opacity: 1, filter: 'blur(0px)' },
-    exit: (dir) => ({ x: dir > 0 ? -60 : 60, opacity: 0, filter: 'blur(6px)' }),
+    enter: (dir) => ({ x: dir > 0 ? 60 : -60, opacity: 0 }),
+    center: { x: 0, opacity: 1 },
+    exit: (dir) => ({ x: dir > 0 ? -60 : 60, opacity: 0 }),
   };
 
   const avatarColors = [
