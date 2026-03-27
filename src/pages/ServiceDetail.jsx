@@ -251,22 +251,34 @@ export default function ServiceDetail() {
               />
             </AnimatedReveal>
 
-            <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-7">
+            <div className={`grid sm:grid-cols-2 ${
+                service.whyChoose.length === 5 ? 'lg:grid-cols-6' : 
+                service.whyChoose.length === 3 ? 'lg:grid-cols-3' : 
+                'lg:grid-cols-4'
+              } gap-6 md:gap-7`}>
               {service.whyChoose.map((item, i) => {
                 const Icon = whyChooseIcons[i % whyChooseIcons.length];
+                
+                let colClass = "";
+                if (service.whyChoose.length === 5) {
+                  if (i < 3) colClass = "lg:col-span-2";
+                  else if (i === 3) colClass = "lg:col-span-2 lg:col-start-2";
+                  else if (i === 4) colClass = "lg:col-span-2 lg:col-start-4";
+                }
+
                 return (
-                  <AnimatedReveal key={i} animation="fadeUp" delay={i * 0.1}>
+                  <AnimatedReveal key={i} animation="fadeUp" delay={i * 0.1} className={colClass}>
                     <motion.div
                       whileHover={{ y: -10, transition: { type: 'spring', stiffness: 300 } }}
                       className="group relative h-full"
                     >
-                      <motion.div className={`absolute -inset-[1px] rounded-2xl bg-gradient-to-br ${whyChooseGradients[i]} opacity-0 group-hover:opacity-100 transition-opacity duration-500`} />
+                      <motion.div className={`absolute -inset-[1px] rounded-2xl bg-gradient-to-br ${whyChooseGradients[i % whyChooseGradients.length]} opacity-0 group-hover:opacity-100 transition-opacity duration-500`} />
                       <div className="relative text-center p-7 md:p-8 rounded-2xl bg-white/[0.06] backdrop-blur-md border border-white/[0.1] group-hover:bg-white/[0.1] group-hover:border-transparent h-full transition-all duration-500">
                         <div className="absolute inset-0 rounded-2xl bg-gradient-to-t from-white/[0.02] to-transparent opacity-0 group-hover:opacity-100 transition-all duration-500" />
                         <div className="relative">
                           <motion.div
                             whileHover={{ rotate: 6, scale: 1.1 }}
-                            className={`w-14 h-14 rounded-2xl bg-gradient-to-br ${whyChooseGradients[i]} flex items-center justify-center mx-auto mb-5 shadow-lg shadow-black/20`}
+                            className={`w-14 h-14 rounded-2xl bg-gradient-to-br ${whyChooseGradients[i % whyChooseGradients.length]} flex items-center justify-center mx-auto mb-5 shadow-lg shadow-black/20`}
                           >
                             <Icon className="w-6 h-6 text-white" />
                           </motion.div>

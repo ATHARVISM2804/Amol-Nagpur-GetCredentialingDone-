@@ -105,7 +105,7 @@ export const servicePages = [
     features: [
       'CAQH profile setup and quarterly attestation',
       'State medical license verification',
-      'DEA and NPI registration support',
+      'NPI registration support',
       'Primary source verification',
       'Application submission to all requested payers',
       'Follow-up and escalation with payers',
@@ -441,6 +441,10 @@ export const servicePages = [
       {
         title: 'Timely Reimbursement',
         description: 'Efficient billing and coding translate to faster reimbursement for your services. Our streamlined processes aim to reduce billing errors and ensure that you receive payments promptly.',
+      },
+      {
+        title: 'Account Receivable',
+        description: 'We help healthcare organizations in recovering overdue payments from insurances.',
       },
     ],
     image: 'https://images.unsplash.com/photo-1563986768609-322da13575f3?w=900&q=80',

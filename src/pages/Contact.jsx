@@ -264,7 +264,6 @@ export default function Contact() {
                     { icon: HiOutlinePhone, label: 'Give us a call', value: 'Toll Free# 866-318-3663' },
                     { icon: HiOutlineEnvelope, label: 'Email us', value: 'info@getcredentialingdone.com' },
                     { icon: HiOutlineMapPin, label: 'Address', value: '8 The Green, Suite# 6882\nDover, DE 19901' },
-                    { icon: HiOutlineClock, label: 'Business Hours', value: 'Mon \u2013 Fri: 8:00 AM \u2013 6:00 PM EST\nSat \u2013 Sun: Closed' },
                   ].map((item, i) => {
                     const isHovered = hoveredInfo === i;
                     return (
